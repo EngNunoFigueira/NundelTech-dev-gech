@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeConsultasMedicas>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Apelido
+        </th>
+        <th>
+            Telefone
+        </th>
+        <th>
+            Hospital
+        </th>
+        <th>
+            Hora
+        </th>
+        <th>
+            Data
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+          Informação
+        </th>
+        <th>Registro</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeKwendy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApelidoKwendy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefoneKwendy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoHospital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraDaConsulta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDaConsulta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoDaConsulta)
+            </td>
+            <td>
+                <a href="#" type="reset" class="btn btn-primary" id="FiltroRequisicoes" onclick="DetalhesDaConsulta(@item.ID)">Detalhes</a>
+            </td>
+            <td>
+                @*@Html.ActionLink("SIM AVANÇAR", "ActualizarConsultaMedica", new { id=item.ID })*@
+                <a href="#" type="reset" class="btn btn-primary" id="FiltroRequisicoes" onclick="ActualizarDadosConsultaMedica(@item.ID)"> Actualizar</a>
+            </td>
+        </tr>
+    }
+</table>

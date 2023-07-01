@@ -1,0 +1,144 @@
+﻿@model Getch_website.My_Classes.DadosDoEventoDeAngariacao
+
+@{
+    ViewBag.Title = "DadosDoEventoDeAngariacao";
+}
+
+<h2>Registo de Eventos</h2>
+
+
+<form action="/RegistarEventoDeAngariacao/DadosDoEventoDeAngariacao" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="Fv_IG6MoVEhvjtofn9k2Sovtbwy9mmoOQtkOzYE0hJyiMYpFy21tf1UEEJZCbus37KEDEIKpB_GsQruhYi6pEFZ63b8ZqgctGtGSucPHnCo1" />    <div class="form-horizontal">
+        <h4>Angariação de Produtos</h4>
+        <hr />
+        <!--Municipio -->
+      <div class="row">
+        <div class="col-sm-4">
+               <div class="form-group">
+            @*<label class="control-label col-md-2" for="IdMunicipio">IdMunicipio</label>*@
+            <div class="col-md-10">
+                @Html.DropDownList("IdMunicipio", new SelectList(ViewBag.Municipio, "ID", "Descricao"), "Município onde se realizará o evento")
+                @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdMunicipio must be a number." data-val-required="O campo IdMunicipio é necessário." id="IdMunicipio" name="IdMunicipio" type="number" value="" />*@
+                <span class="field-validation-valid text-danger" data-valmsg-for="IdMunicipio" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--Nome do Evento Data Hora de Inicio-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="NomeDoEvento">NomeDoEvento</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NomeDoEvento é necessário." id="NomeDoEvento" name="NomeDoEvento" type="text" value="" placeholder="Nome do Evento" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeDoEvento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="DataDeRealiacaoDoEvento">DataDeRealiacaoDoEvento</label>*@
+                <div class="col-md-11">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeRealiacaoDoEvento must be a date." data-val-required="O campo DataDeRealiacaoDoEvento é necessário." id="DataDeRealiacaoDoEvento" name="DataDeRealiacaoDoEvento" type="date" value="" placeholder="Data de Realização: DD/MM/AAAA" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeRealiacaoDoEvento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="HoraDeInicioDoEvento">HoraDeInicioDoEvento</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo HoraDeInicioDoEvento é necessário." id="HoraDeInicioDoEvento" name="HoraDeInicioDoEvento" type="text" value="" placeholder="Hora de abertura: HH-MM-ss" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="HoraDeInicioDoEvento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+   <!--Código do Colaborador Hora de Fecho-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="NumeroDeParticipantes">NumeroDeParticipantes</label>*@
+                <div class="col-md-11">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field NumeroDeParticipantes must be a number." data-val-required="O campo NumeroDeParticipantes é necessário." id="NumeroDeParticipantes" name="NumeroDeParticipantes" type="number" value="" placeholder="Nº de participantes"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDeParticipantes" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="ToneladasAdquiridas">ToneladasAdquiridas</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field ToneladasAdquiridas must be a number." data-val-required="O campo ToneladasAdquiridas é necessário." id="ToneladasAdquiridas" name="ToneladasAdquiridas" type="text" value="" placeholder="Toneladas adquiridas"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="ToneladasAdquiridas" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="HoraDeFechoDoEvento">HoraDeFechoDoEvento</label>*@
+                <div class="col-md-12">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo HoraDeFechoDoEvento é necessário." id="HoraDeFechoDoEvento" name="HoraDeFechoDoEvento" type="text" value="" placeholder="Hora de fecho: HH-MM-ss"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="HoraDeFechoDoEvento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+   <!--Código do Colaborador Estado do Evento-->
+         <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="CodigoDoColaboradorGestorDoEvento">CodigoDoColaboradorGestorDoEvento</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoDoColaboradorGestorDoEvento é necessário." id="CodigoDoColaboradorGestorDoEvento" name="CodigoDoColaboradorGestorDoEvento" type="text" value="" placeholder="Código do Responsável"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoDoColaboradorGestorDoEvento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="DataDeFechoDoEvento">DataDeFechoDoEvento</label>*@
+                <div class="col-md-11">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeFechoDoEvento must be a date." data-val-required="O campo DataDeFechoDoEvento é necessário." id="DataDeFechoDoEvento" name="DataDeFechoDoEvento" type="datetime" value="" placeholder="Data de fecho: DD/MM/AAAA"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeFechoDoEvento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+           <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="EstadoDoEventoDeAngariacaoDeProdutosId">EstadoDoEventoDeAngariacaoDeProdutosId</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("EstadoDoEventoDeAngariacaoDeProdutosId", new SelectList(ViewBag.EstadoDoEvento, "ID", "Descricao"), "Estado actual do evento")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field EstadoDoEventoDeAngariacaoDeProdutosId must be a number." data-val-required="O campo EstadoDoEventoDeAngariacaoDeProdutosId é necessário." id="EstadoDoEventoDeAngariacaoDeProdutosId" name="EstadoDoEventoDeAngariacaoDeProdutosId" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="EstadoDoEventoDeAngariacaoDeProdutosId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      </div>
+
+       <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Registar Evento" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+     
+    </div>
+</form>
+
+<br />
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeEventos>
+
+@{
+    Layout = "";
+}
+<table class="table">
+    <tr>
+        <th>
+            Evento
+        </th>
+        <th>
+            Data realização
+        </th>
+        <th>
+            Provincia
+        </th>
+        <th>
+            Município
+        </th>
+        <th>
+            Hora
+        </th>
+        <th>
+            Estado Actual
+        </th>
+        <th>Consultar</th>
+        <th>Registro</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeRealizacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Municipio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraRealizada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoDoEvento)
+            </td>
+            <td>
+                <a href="#" type="reset" class="btn btn-primary" id="FiltroRequisicoes" onclick="DetalhesDoEvento(@item.ID)">Detalhes</a>
+            </td>
+            <td>
+                @*@Html.ActionLink("AVANÇAR", "AplicarFiltrosAListaDeEventos", new { id=item.ID })*@
+                <a href="#" type="reset" class="btn btn-primary" id="FiltroRequisicoes" onclick="ActualizarAgenda(@item.ID)">Actualizar</a>
+            </td>
+        </tr>
+    }
+</table>

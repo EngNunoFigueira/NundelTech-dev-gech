@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDePadrinhos>
+
+@{
+    ViewBag.Title = "VerPadrinhos";
+}
+<h2>PADRINHOS</h2>
+</br>
+<p>
+    @Html.DropDownList("IdFiltroPadrinho", new SelectList(ViewBag.ComboxFiltroPadrinho, "ID", "Descricao"), "Filtrar por")
+    <a href="#"  class="btn btn-primary" data-dismiss="modal" id="AplicarFiltroPadrinhos" onclick="AplicarFiltroPadrinhos()">Aplicar Filtro</a>
+  
+</p>
+<!--HMTL POP UP ACTUALIZAR FICHA DOS PADRINHOS-->
+<div class="modal fade" id="MostrarFichaDoPadrinhoParaActualizar">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingFchPadrinhado_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Ficha Padrinho</h3>
+            <div id="FotoDoPadrinhoParaActualizar">
+                <img src="~/Images/foto-nuno.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+            </div>
+        </div>
+        <div class="modal-body" style="height: 57px; left: 2.5%;" id="FichaDoPadrinhoParaActualizar">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="cancel-ficha-pessoal-padrinhado"> Cancelar</a>
+            <a href="#" class="btn btn-success" data-dismiss="modal" id="guardar-ficha-pessoal-padrinhado"> Guardar</a>
+
+        </div>
+    </div>
+</div>
+<!--END-->
+<div id="ListaDePadrinhos">
+    @{
+        Html.RenderPartial("AplicarFiltrosListaPadrinhos");
+    }
+</div>
+
+<!-- JAVASCRIPT CODE TO UPDATE DATA-->
+<script type="text/javascript">
+    var ActualizarFichaDoPadrinho = function (idPadrinho) {
+     
+        var url = "/VerPadrinhos/ActualizarFichaDePadrinho?id=" + idPadrinho;
+      
+        $("#loadingFchPadrinhado_1").show();
+        $("#FichaDoPadrinhoParaActualizar").load(url, function () {
+        $("#MostrarFichaDoPadrinhoParaActualizar").modal('show');
+        $("#loadingFchPadrinhado_1").hide();
+        });
+    }
+</script>
+<!-- AJAX LOADER CODE: GET FICHA DO PADRINHO PARA ACTUALIZAR -->
+<script type="text/javascript">
+    var AplicarFiltroPadrinhos= function()
+    {
+        var filtroPadrinhos = document.getElementById("IdFiltroPadrinho").value;;
+        $.ajax({
+            type:'GET',
+            dataType: 'html',
+            cache: false,
+            async: true,
+            url: '/VerPadrinhos/AplicarFiltrosListaPadrinhos',
+            data: { id: 17 },
+            sucess: function (data) { $('#ListaDePadrinhos').html(data); }
+        });
+    }
+</script>
+
+<!-- AJAX CODE: POST ACTUALIZACAO DA FICHA DO PADRINHO-->
+<script type="text/javascript">
+    var AplicarFiltroPadrinhos= function()
+    {
+        $.ajax({
+            type:'POST',
+            url: '/VerPadrinhos/AplicarFiltrosListaPadrinhos',
+            data: { id: 17 }
+        });
+    }
+</script>

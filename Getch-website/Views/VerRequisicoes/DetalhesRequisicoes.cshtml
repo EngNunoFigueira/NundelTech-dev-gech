@@ -1,0 +1,98 @@
+﻿@model Getch_website.Model_Consulta.ListaDeRequisicoes
+@{
+    Layout = "";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+           Descrição do pedido
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+          Data da requisição
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeAbertura)
+        </dd>
+
+        <dt>
+           Data de fecho
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeFecho)
+        </dd>
+
+        <dt>
+           Produto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoDaRequisicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoDaRequisicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDoApadrinhado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoApadrinhado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApelidoDoApadrinhado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApelidoDoApadrinhado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApelidoDoColaborador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApelidoDoColaborador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDoColaborador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoColaborador)
+        </dd>
+
+    </dl>
+</div>
+

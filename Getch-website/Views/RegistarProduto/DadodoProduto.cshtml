@@ -1,0 +1,210 @@
+﻿@model Getch_website.Model_View.DadosDeRegistoDoProduto
+
+@{
+    ViewBag.Title = "DadodoProduto";
+}
+
+<h2>REGISTAR DOAÇÕES</h2>
+<br />
+
+<form action="/RegistarProduto/DadodoProduto" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="WJ3cPonHoA5HW8QG79uLMbGSe6Mp9zgYUcK2YjjW-j8L8_OrTRXZy3sD__ucmg3pvZi64kqw124DiHChkxCCxKs7n8BkpbKBLPtXxbPlDhw1" />    <div class="form-horizontal">
+        <h4>Detalhes do produto</h4>
+        <hr />
+    <!--Armazem-->
+      <div class="row">
+        <div class="col-sm-4">
+              <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("IdArmazen", new SelectList(ViewBag.Armazem, "ID", "Descricao"), "Armazém")
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdArmazen" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+            </div>
+    </div>
+    <!--Nome Apelido Telefone do Padrinho-->
+       <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="NomePadrinho" name="NomePadrinho" type="text" value="" placeholder="Nome do Padrinho"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomePadrinho" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="ApelidoPadrinho" name="ApelidoPadrinho" type="text" value="" placeholder="Apelido do Padrinho"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="ApelidoPadrinho" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="PadrinhoTelefone" name="PadrinhoTelefone" type="text" value="" placeholder="Telefone Padrinho"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PadrinhoTelefone" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Doador anonimo-->
+       <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="PadrinhoEmail" name="PadrinhoEmail" type="text" value="" placeholder="Email do Padrinho" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PadrinhoEmail" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Anonimo">Anônimo</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <input class="check-box" data-val="true" data-val-required="O campo Anonimo é necessário." id="Anonimo" name="Anonimo" type="checkbox" value="true" /><input name="Anonimo" type="hidden" value="false" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Anonimo" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("IdAngariacaoDeProduto", new SelectList(ViewBag.EstadoDoEventoDeAngariacaoDeProduto, "ID", "Descricao"), "Origem do produto")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdAngariacaoDeProduto must be a number." data-val-required="O campo IdAngariacaoDeProduto é necessário." id="IdAngariacaoDeProduto" name="IdAngariacaoDeProduto" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdAngariacaoDeProduto" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Nome do produto Genero Categoria-->
+       <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NomeDoproduto é necessário." id="NomeDoproduto" name="NomeDoproduto" type="text" value="" placeholder="Nome do produto"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeDoproduto" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("IdGeneroDeProduto", new SelectList(ViewBag.GeneroDeProduto, "ID", "Descricao"), "Genero do produto")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdGeneroDeProduto must be a number." data-val-required="O campo IdGeneroDeProduto é necessário." id="IdGeneroDeProduto" name="IdGeneroDeProduto" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdGeneroDeProduto" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("IdCategoriaDoProduto", new SelectList(ViewBag.CategoriaDoProduto, "ID", "Descricao"), "Categoria do produto")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdCategoriaDoProduto must be a number." data-val-required="O campo IdCategoriaDoProduto é necessário." id="IdCategoriaDoProduto" name="IdCategoriaDoProduto" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdCategoriaDoProduto" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+     <!--Data de validade estado do produto estado de conservacao-->
+       <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-11">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeValidade must be a date." data-val-required="O campo DataDeValidade é necessário." id="DataDeValidade" name="DataDeValidade" type="datetime" value="" placeholder="Data de validade"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeValidade" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+         <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("IdEstadoDoProduto", new SelectList(ViewBag.EstadoDeConservacaoDoProduto, "ID", "Descricao"), "Estado do produto  ")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdEstadoDoProduto must be a number." data-val-required="O campo IdEstadoDoProduto é necessário." id="IdEstadoDoProduto" name="IdEstadoDoProduto" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdEstadoDoProduto" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("IdEstadoDeConservacaoDoProduto", new SelectList(ViewBag.EstadoDeConservacaoDoProduto, "ID", "Descricao"), "Conservação do produto")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdEstadoDeConservacaoDoProduto must be a number." data-val-required="O campo IdEstadoDeConservacaoDoProduto é necessário." id="IdEstadoDeConservacaoDoProduto" name="IdEstadoDeConservacaoDoProduto" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdEstadoDeConservacaoDoProduto" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Quantidade kilos Unidades en caixa-->
+       <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field QuantidadeKg must be a number." data-val-required="O campo QuantidadeKg é necessário." id="QuantidadeKg" name="QuantidadeKg" type="text" value="" placeholder="Quantidade"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="QuantidadeKg" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field UnidadesCaixas must be a number." data-val-required="O campo UnidadesCaixas é necessário." id="UnidadesCaixas" name="UnidadesCaixas" type="text" value="" placeholder="Unidades"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="UnidadesCaixas" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field UnidadesPacotes must be a number." data-val-required="O campo UnidadesPacotes é necessário." id="UnidadesPacotes" name="UnidadesPacotes" type="text" value="" placeholder="Kilos por unidade"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="UnidadesPacotes" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+     <!--Data de registro do produto-->
+    
+        @*<div class="form-group">
+            <label class="control-label col-md-2" for="DataDeRegisto">DataDeRegisto</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeRegisto must be a date." data-val-required="O campo DataDeRegisto é necessário." id="DataDeRegisto" name="DataDeRegisto" type="date" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="DataDeRegisto" data-valmsg-replace="true"></span>
+            </div>
+        </div>*@
+       <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Registar Doações" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+      
+    </div>
+</form>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

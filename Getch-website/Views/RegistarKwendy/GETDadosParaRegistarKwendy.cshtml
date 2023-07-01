@@ -1,0 +1,83 @@
+﻿@model Getch_website.Model_View.DadosDeRegistroDoKwendy
+
+@{
+    ViewBag.Title = "GETDadosParaRegistarKwendy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> REGISTAR CRIANÇAS </h2>
+<br />
+
+<div id="ConfirmacaoDoResponsavel">
+        @{
+            @@Html.RenderPartial("DadosDoKwendyVerificadoDepoisDeVerificarResponsavel");
+        }
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <a href="#" class="btn btn-primary" data-dismiss="modal"  onclick="VerificarDadosProgenitor()"  id="Verificar_Pai"> Validar Pai/Tutor</a>
+    </div>
+
+    <div class="col-sm-4">
+        <a href="#" class="btn btn-primary" data-dismiss="modal" onclick="MostraFormPlanoDeEstudo()" id="PlanoDeEstudos">Criar Plano de Estudos</a>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Registo" id="BTN-Guardar-Regkwendy" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--JAVASCRIPT TO UPDATE VIEW DATA-->
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#BTN-Guardar-Regkwendy").fadeOut(6000);
+    });
+
+    function VerificarDadosProgenitor()
+    {
+        var EmailProgenitor      = document.getElementById("Email").value;
+        var CodigoProgenitor     = document.getElementById("CodigoResponsavel").value;
+        var TelefoneOuTelemovel  = document.getElementById("TelemovelSecundario").value;
+        var NomeProgenitor       = document.getElementById("NomeResponsavel").value;
+        var ApelidoProgenito = document.getElementById("ApelidoResponsavel").value;
+
+        $.ajax({
+            type: 'GET',
+            url: '/RegistarKwendy/DadosDoKwendyVerificadoDepoisDeVerificarResponsavel',
+            dataType: 'html',
+            cache: false,
+            async: true,
+            data: { EmailDoPai: EmailProgenitor, TelefoneDoPai: TelefoneOuTelemovel, NomeDoPai: NomeProgenitor, ApelidoDoPai: ApelidoProgenito },
+            success: function (data) { $('#ConfirmacaoDoResponsavel').html(data); }
+        });
+    }
+</script>
+
+<!--CODE FOR UPDATE SCHOOL INFOMATION-->
+<script type="text/javascript">
+
+    var MostraFormPlanoDeEstudo = function () {
+        $("#PlanoDeEstudo").show();
+        $("#BTN-Guardar-Regkwendy").fadeIn(6000);
+    }
+    var OcultarFormPlanoDeEstudo = function () {
+        $("#PlanoDeEstudo").hide();
+    }
+</script>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+@*<div class="form-group">
+        <label class="control-label col-md-2" for="CodigoKwendy">CodigoKwendy</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-length="O campo CodigoKwendy tem de ser uma cadeia com o comprimento máximo de 9." data-val-length-max="9" data-val-regex="O campo CodigoKwendy tem de corresponder à expressão regular &#39;^\d{0}-[a-zA-Z]\d$&#39;." data-val-regex-pattern="^\d{0}-[a-zA-Z]\d$" data-val-required="O campo CodigoKwendy é necessário." id="CodigoKwendy" name="CodigoKwendy" type="text" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="CodigoKwendy" data-valmsg-replace="true"></span>
+        </div>
+    </div>*@

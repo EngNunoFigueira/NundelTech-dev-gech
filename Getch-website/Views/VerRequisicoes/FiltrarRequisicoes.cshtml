@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeRequisicoes>
+
+<table class="table">
+    <tr>
+        <th>
+            Tipo RQ
+        </th>
+        <th>
+            Data-Abertura
+        </th>
+        <th>
+            Produto
+        </th>
+        <th>
+            Quantidade
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Apelido
+        </th>
+        <th>
+            Telefone
+        </th>
+        <th>Pedido</th>
+        <th>Requisição</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeAbertura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoDaRequisicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoApadrinhado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApelidoDoApadrinhado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                <a href="#" type="reset" class="btn btn-primary" id="FiltroRequisicoes" onclick="DetalhesRequisicao(@item.ID)"> Detalhes</a>
+            </td>
+            <td>
+                <a href="#" type="reset" class="btn btn-primary" id="FiltroRequisicoes" onclick="ActualizarRequisicao(@item.ID)"> Actualizar</a>
+            </td>
+        </tr>
+    }
+</table>

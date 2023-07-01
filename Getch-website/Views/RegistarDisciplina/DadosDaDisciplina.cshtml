@@ -1,0 +1,117 @@
+﻿@model Getch_website.Model_View.DadosDaDisciplina
+
+@{
+    ViewBag.Title = "DadosDaDisciplina";
+}
+
+<h2>Plano de Estudos</h2>
+
+
+<form action="/RegistarDisciplina/DadosDaDisciplina" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="LVP--RvgKiHV9bfuIz6DmyMxFFBC3SUvUjSXkzRa6PmymVb6G7lL4LREEZWKd8G2LZ8R6nhYQFhm_xtbIBN3B5LgTA3Pf57kRzk71xCuT-w1" />    <div class="form-horizontal">
+        <h4>Disciplina</h4>
+        <hr />
+    <!--Codigo Apadrinhado Nome da UC Tipo anual ou semestral-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="CodigoApadrinhado">CodigoApadrinhado</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoApadrinhado é necessário." id="CodigoApadrinhado" name="CodigoApadrinhado" type="text" value="" placeholder="Código de apadrinhado:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoApadrinhado" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdNomeDaUC">IdNomeDaUC</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("IdNomeDaUC", new SelectList(ViewBag.NomesDeUC, "ID", "Descricao"), "Disciplina")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdNomeDaUC must be a number." data-val-required="O campo IdNomeDaUC é necessário." id="IdNomeDaUC" name="IdNomeDaUC" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdNomeDaUC" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdTipoSemestralOuAnual">IdTipoSemestralOuAnual</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("IdTipoSemestralOuAnual", new SelectList(ViewBag.SemestralOuAnul, "ID", "Descricao"), "Anual/Semestral ?")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdTipoSemestralOuAnual must be a number." data-val-required="O campo IdTipoSemestralOuAnual é necessário." id="IdTipoSemestralOuAnual" name="IdTipoSemestralOuAnual" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdTipoSemestralOuAnual" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+     <!--NOTA PS NOTA SS NOTA TSS NOTA FINAL-->
+  <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="PSMedia">PSMedia</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field PSMedia must be a number." data-val-required="O campo PSMedia é necessário." id="PSMedia" name="PSMedia" type="text" value="" placeholder="Média do primeiro semestre:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PSMedia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="SSMedia">SSMedia</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field SSMedia must be a number." data-val-required="O campo SSMedia é necessário." id="SSMedia" name="SSMedia" type="text" value=""  placeholder="Média do segundo semestre:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="SSMedia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="TSMedia">TSMedia</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field TSMedia must be a number." data-val-required="O campo TSMedia é necessário." id="TSMedia" name="TSMedia" type="text" value=""  placeholder="Média do terceiro semestre:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TSMedia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Bota Submite-->
+  <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Guardar e Continuar" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+    <!--Next -->
+      <div class="row">
+        <div class="col-sm-4">
+            <div>
+                <h5>
+                    <a href="/RegistarDisciplina/DadosDaDisciplina/">Próxima</a>
+                </h5>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+           
+    </div>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

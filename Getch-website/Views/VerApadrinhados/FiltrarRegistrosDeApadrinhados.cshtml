@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeApadrinhados>
+
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Apelido
+        </th>
+        <th>
+            Sexo
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Telefone
+        </th>
+        <th>
+            Telemóvel
+        </th>
+        <th>Fciha Pessoal</th>
+        <th>Ficha Médica</th>
+        <th>Registro</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefoneFixo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telemovel)
+            </td>
+            <td>
+                <span><a href="#" id="detalhes-apadrinhado" class="btn btn-primary" onclick="DetalhesFichaApadrinhado(@item.ID)">Detalhes</a> </span>
+            </td>
+            <td>
+                <span><a href="#" id="detalhes-apadrinhado" class="btn btn-primary" onclick="FichaMedicaApadrinhado(@item.ID)">Detalhes</a> </span>
+            </td>
+            <td>
+                @*@Html.ActionLink("AVANÇAR", "ActualizarFichaDeApadrinhado", new { id=item.ID })*@
+                <span><a href="#" id="detalhes-apadrinhado" class="btn btn-primary" onclick="ActualizarFichaApadrinhado(@item.ID)">Actualizar</a> </span>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDePadrinhos>
+
+<table class="table">
+    <tr>
+        <th>
+            Tipo-pd
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Apelido
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </th>
+        <th>
+            Data de Adesão
+        </th>
+        <th>
+            Participação %
+        </th>
+        <th>Ficha de Padrinha</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDePadrinho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoPadrinho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApelidoDoPadrinho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeAdesao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrauDeParticipacao)
+            </td>
+            <td>
+                <span><a href="#" id="detalhes-apadrinhado" class="btn btn-primary" onclick="ActualizarFichaDoPadrinho(@item.ID)">Actualizar</a> </span>
+            </td>
+        </tr>
+    }
+
+</table>

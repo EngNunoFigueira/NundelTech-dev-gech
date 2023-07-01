@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeKwendy>
+
+<!--TABELA-->
+
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Apelido
+        </th>
+        <th>
+            Sexo
+        </th>
+        <th>
+            Idade
+        </th>
+        <th>
+            Documento
+        </th>
+        <th>
+            Tipo
+        </th>
+        <th>
+            Validade
+        </th>
+        <th>
+            Ficha Pessoal
+        </th>
+        <th>
+            Ficha Médica
+        </th>
+        <th>
+            Actualizações
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apelido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDocumentoDeIndetidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeValidadeDoDocumentoDeIdentidade)
+            </td>
+            <td>
+                <span><a href="#" id="Detalhes" class="btn btn-primary" onclick="DetalhesFichaDaCrianca(@item.ID)">Ficha Pessoal</a> </span>
+            </td>
+            <td>
+                <span><a href="#" id="DadosMédicos" class="btn btn-primary" onclick="FichaMedicaDaCrianca(@item.ID)">Ficha Médica</a> </span>
+            </td>
+            <td>
+                <span><a href="#" id="Actualizar" class="btn btn-primary" onclick="ActualizaFichaDaCrianca(@item.ID)">Actualizações</a> </span>
+            </td>
+        </tr>
+    }
+</table>

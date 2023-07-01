@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.NotasIndividuaisDoPanoCurricular>
+
+<table class="table">
+    <tr>
+        <th>
+          Nome
+        </th>
+        <th>
+           Apelido
+        </th>
+        <th>
+           Ano Lectivo
+        </th>
+        <th>
+            Ciclo
+        </th>
+        <th>
+            Classe
+        </th>
+        <th>
+          Escola
+        </th>
+        <th>
+           Disciplina
+        </th>
+        <th>
+           Nota I Semestre
+        </th>
+        <th>
+           Nota II Semestre
+        </th>
+        <th>
+           Nota Final
+        </th>
+        <th>
+           Taxa aproveitamento
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDaCrianca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApelidoDaCrianca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnoLectivo)  
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoCicloFormativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClasseQueFrequenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoInstituicaoDeEnsino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDaDisciplina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotaPrimeiroSemestre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotaSegundoSemestre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotaTerceiroSemestre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxaAproveitamento)
+        </td>
+       
+    </tr>
+}
+
+</table>

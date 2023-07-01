@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeEventos>
+
+@{
+    ViewBag.Title = "EventosMarcados";
+}
+
+<h2>AGENDA DE TRABALHO</h2>
+<br />
+<select id="IdEventos" name="AgendaDeEventos">
+    <option value="0">Eventos</option>
+    <option value="1">Agendados</option>
+    <option value="2">Cancelados</option>
+    <option value="3">Fechados</option>
+    <option value="4">Em Luanda</option>
+    <option value="5">Em Benguela</option>
+    <option value="6">Na Huila</option>
+    <option value="7">Em Cabinda</option>
+    <option value="8">Em Malanje</option>
+    <option value="9">Kwanza Norte</option>
+    <option value="10">Esta informa&#231;&#227;o n&#227;o est&#225; dispon&#237;vel</option>
+</select>
+<a href="#" class="btn btn-primary" data-dismiss="modal" id="cancel-ficha-pessoal-apadrinhado" onclick="AplicarFiltros()">Aplicar Filtro</a>
+
+<br />
+<div id="NovoRegistroDeEventos">
+    @{ 
+        @@Html.RenderPartial("AplicarFiltrosAListaDeEventos");
+    }
+</div>
+
+<!--HTML PO UP ACTUALIZAR FICHA DO EVENTO-->
+<div class="modal fade" id="ActualizarEventos">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingEventos_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">ACTUALIZAR EVENTO</h3>
+        </div>
+        <div class="modal-body" id="MostraDadosDoEventos">
+            <br />
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <select id="Provinvcia" name="Provinvcia">
+                        <option value="">Provincía</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <select id="Municipio" name="Município">
+                        <option value="">Município</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <select id="Estado" name="Estado">
+                        <option value="">Estado evento</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Npessoas" placeholder="Nº de participantes:">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Toneladas" placeholder="Toneladas adquiridas:">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="NomeDoEvento" placeholder="Nome do evento">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Data" placeholder="Data: DDMMAAAA">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Hora" placeholder="Hora: HMM">
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="CLRATLEventos">Cancelar</a>
+            <a href="#" class="btn btn-success" data-dismiss="modal" id="ATLEventos">Guardar</a>
+        </div>
+    </div>
+</div>
+<!--HTML POP UP VER DETALHES DO EVENTO -->
+<div class="modal fade" id="MostrarDetalhesDoEvento">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingEventos_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">DETALHES DO EVENTO</h3>
+        </div>
+        <div class="modal-body" id="DadosDoEventos">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="CancelfichaEventos">OK</a>
+        </div>
+    </div>
+</div>
+<!--END-->
+
+<!--JAVASCRIPT-->
+<script type="text/javascript">
+    var ActualizarAgenda = function(idAgenda)
+    {
+        $("#loadingConsMedica_1").show();
+        $("#ActualizarEventos").modal('show');
+
+        var provincia=6;//document.getElementById("Provincia").value;
+        var municipio=5;//document.getElementById("Municipio").value;
+        var hora=1040;//document.getElementById("Hora").value;
+        var nomeEvento='ANA';//document.getElementById("NomeDoEvento").value;
+        var toneladas=2078;//document.getElementById("Toneladas").value;
+        var numeropessoas=19091;//document.getElementById("Npessoas").value;
+
+        $('#ATLEventos').click( function()
+        {
+                $.ajax({
+                    type:'POST',
+                    url:'/VerEventosMarcados/ActualizarDadosDosEventosMarcados',
+                    data:{id:idAgenda, Idprovincia:provincia, Idmunicipio:municipio,Ehora:hora, EnomeEvento:nomeEvento, Etoneladas:toneladas, Enumeropessoas:numeropessoas},
+                    sucess:{function ()
+                    {
+                        $("#loadingConsMedica_1").hide();}
+                    }
+                });
+            }); 
+    }
+
+</script>
+<!--AJAX AND JAVASCRIPT CODE TO POP UP-->
+<script type="text/javascript">
+    var DetalhesDoEvento = function(IdEvento)
+    {
+        var url = "/VerEventosMarcados/DetalhesDoEvento?id="+IdEvento;
+        $("#loadingConsMedica_1").show();
+        $("#DadosDoEventos").load(url, function () {
+            $("#MostrarDetalhesDoEvento").modal('show');
+            $("#loadingConsMedica_1").hide();
+        });
+    }
+</script>
+<!--AJAX AND JAVASCRIPT APPLY FILTER-->
+<script type="text/javascript">
+    var AplicarFiltros = function()
+    {
+        var filtro=document.getElementById("IdEventos").value;
+        $.ajax({
+            type:'GET',
+            url: '/VerEventosMarcados/AplicarFiltrosAListaDeEventos',
+            dataType: 'html',
+            cache: false,
+            async: true,
+            data:{id:filtro},
+            success: function (data) { $('#NovoRegistroDeEventos').html(data); }
+            });
+    }
+</script>

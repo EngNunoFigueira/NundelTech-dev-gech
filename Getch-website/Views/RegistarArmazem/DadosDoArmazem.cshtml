@@ -1,0 +1,139 @@
+﻿@model Getch_website.Model_View.DadosDoArmazem
+
+@{
+    ViewBag.Title = "DadosDoArmazem";
+}
+
+<h2>ARMAZÉM</h2>
+
+
+<form action="/RegistarArmazem/DadosDoArmazem" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="JvxsDzENhGVlY_ZnHgjdup_go5do_tjFXbVxj4jTrgElVuQMhjvqL7xOS5Hpk4MyHS9P1xeIMHX6g-xXPa2b6-p7OPB0b2-IzoYqdaalmqc1" />    <div class="form-horizontal">
+        <h4>Novo Armazém</h4>
+        <hr />
+        <!--Nome do armazem, Telefone, skype-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="NomeDoArmazem">NomeDoArmazem</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="O campo NomeDoArmazem tem de ser uma cadeia com o comprimento máximo de 150." data-val-length-max="150" data-val-regex="O campo NomeDoArmazem tem de corresponder à expressão regular &#39;^\d{0}-[a-zA-Z]\d$&#39;." data-val-regex-pattern="^\d{0}-[a-zA-Z]\d$" data-val-required="O campo NomeDoArmazem é necessário." id="NomeDoArmazem" name="NomeDoArmazem" type="text" value="" placeholder="Nome" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="NomeDoArmazem" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="O campo Telefone tem de ser uma cadeia com o comprimento máximo de 14." data-val-length-max="14" data-val-regex="O campo Telefone tem de corresponder à expressão regular &#39;^[0-9]+$&#39;." data-val-regex-pattern="^[0-9]+$" data-val-required="O campo Telefone é necessário." id="Telefone" name="Telefone" type="text" value="" placeholder="Telefone" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Telefone" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="Skype">Skype</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="O campo Skype tem de ser uma cadeia com o comprimento máximo de 14." data-val-length-max="14" data-val-regex="O campo Skype tem de corresponder à expressão regular &#39;^[A-Z0-9]+$&#39;." data-val-regex-pattern="^[A-Z0-9]+$" data-val-required="O campo Skype é necessário." id="Skype" name="Skype" type="text" value="" placeholder="Skype" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Skype" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--RuaTavessa NumeroDaPorta CodigoPostal-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo RuaAvenida é necessário." id="RuaAvenida" name="RuaAvenida" type="text" value="" placeholder="Travessa/Avenida/Rua"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="RuaAvenida" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NumeroDaPorta é necessário." id="NumeroDaPorta" name="NumeroDaPorta" type="text" value=""  placeholder="Nº da porta"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDaPorta" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoPostal é necessário." id="CodigoPostal" name="CodigoPostal" type="text" value="" placeholder="Código postal" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoPostal" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+
+        <!--Data Abertura, Gerente-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="DataDeAbertura">DataDeAbertura</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeAbertura must be a date." data-val-required="O campo DataDeAbertura é necessário." id="DataDeAbertura" name="DataDeAbertura" type="text" value="" placeholder="Data de abertura: MM/DD/AAAA" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="DataDeAbertura" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="CodigoColaboradorGerente">CodigoColaboradorGerente</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoColaboradorGerente é necessário." id="CodigoColaboradorGerente" name="CodigoColaboradorGerente" type="text" value="" placeholder="Código do Gerente" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CodigoColaboradorGerente" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Morada Estado-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdMorada">IdMorada</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdMorada", new SelectList(ViewBag.Bairro, "ID", "Descricao"), "Bairro")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdMorada must be a number." data-val-required="O campo IdMorada é necessário." id="IdMorada" name="IdMorada" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdMorada" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdEstadoDoArmazem">IdEstadoDoArmazem</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdEstadoDoArmazem", new SelectList(ViewBag.EstadoDoArmazem, "ID", "Descricao"), "Estado do armazém")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdEstadoDoArmazem must be a number." data-val-required="O campo IdEstadoDoArmazem é necessário." id="IdEstadoDoArmazem" name="IdEstadoDoArmazem" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdEstadoDoArmazem" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-offset-12 col-md-10">
+                        <input type="submit" value="Registar Armazem" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

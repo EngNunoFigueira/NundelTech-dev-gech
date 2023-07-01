@@ -1,0 +1,252 @@
+﻿@model Getch_website.Model_View.DadosDeRegistoDoPadrinho
+
+@{
+    ViewBag.Title = "DadosDoPadrinho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>REGISTAR</h2>
+
+
+<form action="/RegistarPadrinho/DadosDoPadrinho" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="LBPszqRaN2UsoNYK1CBQCkFDxdNXZXcqB4FLawl7gadwieuV3pdJI752qKYM6IvZ3y3c9PDUIkbS2-uHWKNUtr6Vf42RnQiEGxIFydlLcjU1" />    <div class="form-horizontal">
+        <h4>Padrinhos</h4>
+        <hr />
+    <!--nome Apelido -->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-length="O campo Nome tem de ser uma cadeia com o comprimento máximo de 50." data-val-length-max="50" data-val-required="O campo Nome é necessário." id="Nome" name="Nome" type="text" value="" placeholder="Nome"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Nome" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-length="O campo Apelido tem de ser uma cadeia com o comprimento máximo de 30." data-val-length-max="30" data-val-required="O campo Apelido é necessário." id="Apelido" name="Apelido" type="text" value="" placeholder="Apelido"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Apelido" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("IdSexo", new SelectList(ViewBag.Sexo, "ID", "Descricao"), "Sexo")
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdSexo" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            @*<div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field IdSexo must be a number." data-val-required="O campo IdSexo é necessário." id="IdSexo" name="IdSexo" type="number" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdSexo" data-valmsg-replace="true"></span>
+                </div>
+            </div>*@
+            </div>
+    </div>
+    <!--Data de nascimento -->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDENascimento must be a date." data-val-required="O campo DataDENascimento é necessário." id="DataDENascimento" name="DataDENascimento" type="text" value="" placeholder="Data de nascimento"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDENascimento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataAdesaoAoPrograma must be a date." data-val-required="O campo DataAdesaoAoPrograma é necessário." id="DataAdesaoAoPrograma" name="DataAdesaoAoPrograma" type="datetime" value="" placeholder="Data de adesão"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataAdesaoAoPrograma" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="col-md-10">
+                @Html.DropDownList("IdTipoDePadrinho", new SelectList(ViewBag.TipoDePadrinho, "ID", "Descricao"), "Tipo de padrinho")
+                <span class="field-validation-valid text-danger" data-valmsg-for="IdTipoDePadrinho" data-valmsg-replace="true"></span>
+            </div>
+            @*<div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field IdTipoDePadrinho must be a number." data-val-required="O campo IdTipoDePadrinho é necessário." id="IdTipoDePadrinho" name="IdTipoDePadrinho" type="number" value="" placeholder="Tipo de padrinho" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdTipoDePadrinho" data-valmsg-replace="true"></span>
+                </div>
+            </div>*@
+            </div>
+    </div>
+    <!--Email Telefone Telemovel-->
+  <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-email="Email invalido" data-val-required="O campo Email é necessário." id="Email" name="Email" type="email" value="" placeholder="E-mail"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-length="O campo TelefonePrimario tem de ser uma cadeia com o comprimento máximo de 14." data-val-length-max="14" data-val-regex="O campo TelefonePrimario tem de corresponder à expressão regular &#39;^[0-9]+$&#39;." data-val-regex-pattern="^[0-9]+$" data-val-required="O campo TelefonePrimario é necessário." id="TelefonePrimario" name="TelefonePrimario" type="text" value="" placeholder="Telemóvel"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TelefonePrimario" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-length="O campo TelefoneSecundario tem de ser uma cadeia com o comprimento máximo de 14." data-val-length-max="14" data-val-regex="O campo TelefoneSecundario tem de corresponder à expressão regular &#39;^[0-9]+$&#39;." data-val-regex-pattern="^[0-9]+$" data-val-required="O campo TelefoneSecundario é necessário." id="TelefoneSecundario" name="TelefoneSecundario" type="text" value="" placeholder="Telefone fixo"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TelefoneSecundario" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Bairro-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("BairroId", new SelectList(ViewBag.Bairro, "ID", "Descricao"), "Bairro")
+                    <span class="field-validation-valid text-danger" data-valmsg-for="BairroId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field BairroId must be a number." data-val-required="O campo BairroId é necessário." id="BairroId" name="BairroId" type="number" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="BairroId" data-valmsg-replace="true"></span>
+                </div>
+            </div>*@
+
+            </div>
+    </div>
+    <!--Morada Rua Cogigo Postal Numero da Porta-->
+     <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo RuaAvenida é necessário." id="RuaAvenida" name="RuaAvenida" type="text" value="" placeholder="Morada"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="RuaAvenida" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NumeroDaPorta é necessário." id="NumeroDaPorta" name="NumeroDaPorta" type="text" value=""placeholder="Número da porta" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDaPorta" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoPostal é necessário." id="CodigoPostal" name="CodigoPostal" type="text" value="" placeholder="Código postal"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoPostal" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+     <!--Responsavel Telefone Facebook -->
+      <!--BOTAO PARA PREEENCHER DADOS DE EMPRESAS-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-offset-12 col-md-10">
+                        <input value="Sou Empresa ?" id="RgcomoEmpresa" onclick="SouEmpresa()"  class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!--Dados Para Empresas que APadrinham -->
+    <div name="Empresa" value="Empresa"  id="Empresa">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="O campo TelefoneResponsavel tem de ser uma cadeia com o comprimento máximo de 14." data-val-length-max="14" data-val-regex="O campo TelefoneResponsavel tem de corresponder à expressão regular &#39;^[0-9]+$&#39;." data-val-regex-pattern="^[0-9]+$" id="TelefoneResponsavel" name="TelefoneResponsavel" type="text" value="" placeholder="Telefone da empresa" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="TelefoneResponsavel" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="O campo Responsavel tem de ser uma cadeia com o comprimento máximo de 30." data-val-length-max="30" data-val-regex="O campo Responsavel tem de corresponder à expressão regular &#39;^\d{0}-[a-zA-Z]\d$&#39;." data-val-regex-pattern="^\d{0}-[a-zA-Z]\d$" id="Responsavel" name="Responsavel" type="text" value="" placeholder="Responsável" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Responsavel" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" id="PaginaWeb" name="PaginaWeb" type="text" value="" placeholder="Página web" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="PaginaWeb" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" id="Facebook" name="Facebook" type="text" value="" placeholder="Facebook" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Facebook" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--Grau de particicao-->
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="form-group">
+                  <div class="col-md-10">
+                      @Html.DropDownList("IdParticipacao", new SelectList(ViewBag.GrauDeParticipacao, "ID", "Descricao"), "participação no SAS")
+                      <span class="field-validation-valid text-danger" data-valmsg-for="IdParticipacao" data-valmsg-replace="true"></span>
+                  </div>
+              </div>
+          </div>
+    </div>
+    <!--Botao enviar-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Finalizzar Registo" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+    </div>
+
+    </div>
+    </for>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script>
+            $(document).ready(function () {
+                $('#Empresa').hide();
+            });
+
+            function SouEmpresa()
+            {
+                $('#Empresa').show();
+            }
+        </script>
+    }

@@ -1,0 +1,152 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeConsultasMedicas>
+
+@{
+    ViewBag.Title = "ConsultaMedica";
+}
+
+<h2>CONSULTAS MÉDICAS</h2>
+<br />
+<select id="IdFiltroConsMedicas" name="FiltroConsMedicas">
+    <option value="0">Filtratr por</option>
+    <option value="1">Consultas fechadas</option>
+    <option value="2">Consultas canceladas</option>
+    <option value="3">Consultas em atraso</option>
+    <option value="4">Consulta de pediatria</option>
+    <option value="5">Consultas internas</option>
+    <option value="1">Esta informa&#231;&#227;o n&#227;o est&#225; dispon&#237;vel</option>
+</select>
+<a href="#" type="reset" class="btn btn-primary" id="AplicarFiltroConsMedicas" onclick="FiltraRegistrosDEConsultaMedica()">Aplicar Filtro</a>
+<br />
+<div id="ListaDasConsultasMedicas">
+    @{
+        Html.RenderPartial("AplicarFiltroRegistrosConsultaMedica");
+    }
+</div>
+<!--HTML POP UP-->
+<div class="modal fade" id="ConsultaMedica">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingConsMedica_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Detalhes da Consulta Médica</h3>
+        </div>
+        <div class="modal-body" id="MostrarDadosDaConsultaMedica">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="cancel-ficha-ConsMedica"> OK</a>
+        </div>
+    </div>
+</div>
+<!--HTML POP UP ACTUALIZAR DADOS DA CONSULTA-->
+<div class="modal fade" id="ActualizarConsultaMedica">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingConsMedica_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Actualizar Registro da Consulta Médica</h3>
+        </div>
+        <div class="modal-body" id="DadosDaActualizacaoDaConsultaMedica">
+            <div class="container">
+                <h2></h2>
+                <br />
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <select id="HospitalDaConsulta" name="HospitalDaConsulta">
+                            <option value="">Hospital</option>
+                            <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <select id="EstadoDaConsulta" name="EstadoDaConsulta">
+                            <option value="">Estado da consulta</option>
+                            <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <select id="TipoDaConsulta" name="TipoDaConsulta">
+                            <option value="">Tipo de consulta</option>
+                            <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <input type="text" class="form-control" id="DataDaConsulta" placeholder="Nome do médico">
+                    </li>
+                    <li class="list-group-item">
+                        <input type="text" class="form-control" id="DataDaConsulta" placeholder="Data: DDMMAAAA">
+                    </li>
+                    <li class="list-group-item">
+                       <input type="text" class="form-control" id="HodaDaConsulta" placeholder="Hora: HMM">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-success" data-dismiss="modal" id="ATLConsMedica">Guardar</a>
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="CLRATLConsMedica">Cancelar</a>
+        </div>
+    </div>
+</div>
+<!--END-->
+<!--JAVASCRIPT CODE -->
+<script type="text/javascript">
+    var ActualizarDadosConsultaMedica = function(idConsMedica)
+    {
+        var url = "/VerConsultasMedicas/ActualizarDadosDaConsultaMedica";
+        $("#loadingConsMedica_1").show();
+        $("#ActualizarConsultaMedica").modal('show');
+
+        var Hospital= 10;//document.getElementById("idHospital").value;
+        var Medico ='Orlando Pinto';//document.getElementById("MedicoDaConsulta").value;
+        var Estado=12;//document.getElementById("EstadoDaConsulta").value;
+        var Hora = 13;//document.getElementById("HodaDaConsulta").value;
+        var Data = 14;//document.getElementById("DataDaConsulta").value;
+        var TipoConsulta = 15;//document.getElementById("TipoDaConsulta").value;
+
+        $('#ATLConsMedica').click(function ()
+        {
+            $.ajax({
+                type: 'POST',
+                url: '/VerConsultasMedicas/ActualizarDadosDaConsultaMedica',
+                data: { id:idConsMedica,idHospital:Hospital,idEstado:Estado,hora:Hora,NomeMedico:Medico,data:Data,idConsulta:TipoConsulta },
+                sucess: {
+                    function() {
+                        $("#loadingConsMedica_1").hide();
+                    }
+                }
+            });
+
+        });
+    }
+</script>
+
+<!--JAVASCRIPT DETALHES DA CONSULTA-->
+<script type="text/javascript">
+    var DetalhesDaConsulta = function(idConsMedica)
+    {
+           alert("Ola Nuno:"+idConsMedica);
+           var url ="/VerConsultasMedicas/DetalhesDaConsultaMedica?id=" + idConsMedica;
+            $("#loadingConsMedica_1").show();
+            $("#MostrarDadosDaConsultaMedica").load(url, function(){
+            $("#ConsultaMedica").modal('show');
+            $("#loadingConsMedica_1").hide();
+            });
+    }
+</script>
+
+<!--APLICAR FILTROS A LISTA DAS CONSULTAS MEDICAS-->
+<script type="text/javascript">
+    var FiltraRegistrosDEConsultaMedica= function () {
+        var Filtro= document.getElementById("IdFiltroConsMedicas").value;
+        $.ajax({
+            type:'GET',
+            url: '/VerConsultasMedicas/AplicarFiltroRegistrosConsultaMedica',
+            data: { idProcesso: Filtro },
+            sucess: {  }
+             });
+    }
+</script>

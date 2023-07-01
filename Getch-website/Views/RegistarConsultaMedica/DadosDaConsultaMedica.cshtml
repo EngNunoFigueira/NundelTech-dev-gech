@@ -1,0 +1,133 @@
+﻿@model Getch_website.Model_View.DadosDaMarcacaoDaConsulta
+
+@{
+    ViewBag.Title = "DadosDaConsultaMedica";
+}
+
+<h2>Consulta Médica</h2>
+
+
+<form action="/RegistarConsultaMedica/DadosDaConsultaMedica" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="7HBfATVLF4YEPae3dFk7rUNGb6R0nT4Lk3GrKvCT2wd2Bpzhhn8puAeRrMq5YOPMM1X9Ohm9TQnZZ-AiIb7Pn1HSClhbnWhQfoYbsbC6Gqs1" />    <div class="form-horizontal">
+        <h4>dados do utente</h4>
+        <hr />
+      <!--Codigo do Utente -->
+          <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdTipoDeConsultaMedica">IdTipoDeConsultaMedica</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("IdTipoDeConsultaMedica", new SelectList(ViewBag.TipoDeConsulta, "ID", "Descricao"), "Tipo de consulta médica")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdTipoDeConsultaMedica must be a number." data-val-required="O campo IdTipoDeConsultaMedica é necessário." id="IdTipoDeConsultaMedica" name="IdTipoDeConsultaMedica" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdTipoDeConsultaMedica" data-valmsg-replace="true"></span>
+                </div>
+            </div> 
+            </div>
+              <div class="col-sm-4">
+                  <div class="form-group">
+                      @*<label class="control-label col-md-2" for="IdKwendy">IdKwendy</label>*@
+                      <div class="col-md-10">
+                          <input class="form-control text-box single-line" data-val="true" data-val-number="The field IdKwendy must be a number." data-val-required="O campo IdKwendy é necessário." id="IdKwendy" name="IdKwendy" type="text" value="" placeholder="Código do apadrinhado:" />
+                          <span class="field-validation-valid text-danger" data-valmsg-for="IdKwendy" data-valmsg-replace="true"></span>
+                      </div>
+                  </div>
+              </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="DataDeMarcao">DataDeMarcao</label>*@
+                <div class="col-md-11">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeMarcao must be a date." data-val-required="O campo DataDeMarcao é necessário." id="DataDeMarcao" name="DataDeMarcao" type="datetime" value="" placeholder="Hora da consulta:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeMarcao" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+       <!--Nome do Hospital Nome do Médico-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="NomeDoHospitalOuCentroDeSaudeId">NomeDoHospitalOuCentroDeSaudeId</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("NomeDoHospitalOuCentroDeSaudeId", new SelectList(ViewBag.Hospital, "ID", "Descricao"), "Nome da unidade hospitalar")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field NomeDoHospitalOuCentroDeSaudeId must be a number." data-val-required="O campo NomeDoHospitalOuCentroDeSaudeId é necessário." id="NomeDoHospitalOuCentroDeSaudeId" name="NomeDoHospitalOuCentroDeSaudeId" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeDoHospitalOuCentroDeSaudeId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="NomeDoMedico_a">NomeDoMedico_a</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="NomeDoMedico_a" name="NomeDoMedico_a" type="text" value="" placeholder="Nome do médico"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeDoMedico_a" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="ApelidoDoMedico_a">ApelidoDoMedico_a</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="ApelidoDoMedico_a" name="ApelidoDoMedico_a" type="text" value="" placeholder="Apelido do médico"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="ApelidoDoMedico_a" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Tipo de consulta data da consulta e hora-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="EstadoId">EstadoId</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("EstadoId", new SelectList(ViewBag.Estado, "ID", "Descricao"), "Estado da consulta")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field EstadoId must be a number." data-val-required="O campo EstadoId é necessário." id="EstadoId" name="EstadoId" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="EstadoId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="DataDaConsulta">DataDaConsulta</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDaConsulta must be a date." data-val-required="O campo DataDaConsulta é necessário." id="DataDaConsulta" name="DataDaConsulta" type="text" value="" placeholder="Data da consulta:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDaConsulta" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="HoraDaConsulta">HoraDaConsulta</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo HoraDaConsulta é necessário." id="HoraDaConsulta" name="HoraDaConsulta" type="text" value="" placeholder="Hora da consulta:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="HoraDaConsulta" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Botao de submite-->  
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Processar e Guardar" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+    </div>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

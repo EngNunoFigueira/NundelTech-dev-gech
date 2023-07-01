@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaPlanoDeEstudo>
+
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Apelido
+        </th>
+        <th>
+            Escola
+        </th>
+        <th>
+            Ano Lecitvo
+        </th>
+        <th>
+            Ciclo de formativo
+        </th>
+        <th>
+            Classe
+        </th>
+        <th>
+            Detalhes
+        </th>
+        <th>
+            Disciplinas
+        </th>
+        <th>
+            Plano Curricular
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDaCrianca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApelidoDaCrianca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoLectivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoCicloFormativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoInstituicaoDeEnsino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClasseQueFrequenta)
+            </td>
+            <td>
+                <span><a href="#" id="detalhes-plano-estudos" class="btn btn-primary" onclick="DetalhesPlanoCurricular(@item.ID)">Detalhes</a> </span>
+            </td>
+            <td>
+                <span><a href="#" id="historico-academico" class="btn btn-primary" onclick="HistoricoPlanoCurricular(@item.ID)">Historico</a> </span>
+            </td>
+            <td>
+                <span><a href="#" id="actualizar-plano-estudos" class="btn btn-primary" onclick="ActualizarPlanoCurricular(@item.ID)">Actualizar</a> </span>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Getch_website.My_Classes.ComboxCategoriaDoProduto" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxCategoriaDoProduto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxCicloFormativo" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxCicloFormativo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxData" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxDepartamento" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxDepartamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxDisciplina" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxDisciplina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxEstado" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxEstado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxEstadoCivil" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxEstadoCivil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxEstadoDaRequisicao" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxEstadoDaRequisicao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxEstadoDeConservacaoDoProduto" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxEstadoDeConservacaoDoProduto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxEstadoDoEventoDeAngariacaoDeProduto" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxEstadoDoEventoDeAngariacaoDeProduto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxEstadoDoProdutoEmStock" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxEstadoDoProdutoEmStock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxEstudo" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxEstudo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxFuncao" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxFuncao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxGeneroDeProduto" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxGeneroDeProduto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxGeneroDoMedicamento" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxGeneroDoMedicamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxGraudDeParticipacao" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxGraudDeParticipacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxInstituicaoDeEnsino" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxInstituicaoDeEnsino.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxMunicipio" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxMunicipio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxNomeDoHospitalOuCentroDeSaude" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxNomeDoHospitalOuCentroDeSaude.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxProvincia" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxProvincia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxSexo" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxSexo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComboxTipoDeConsultaMedica" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComboxTipoDeConsultaMedica.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Getch_website.My_Classes.ComoboxBairro" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My-Classes\ComoboxBairro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

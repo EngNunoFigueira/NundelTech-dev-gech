@@ -1,0 +1,158 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeRequisicoes>
+
+@{
+    ViewBag.Title = "VerRequisicoes";
+}
+
+<h2>REQUISIÇÕES</h2>
+<br />
+
+@Html.DropDownList("IdFiltroRequisicoes", new SelectList(ViewBag.EstadoDaRequisicao, "ID", "Descricao"), "Filtratr por")
+<a href="#" type="reset" class="btn btn-primary" id="FiltroRequisicoes" onclick="AplicarFiltrosRequisicao()"> Aplicar Filtro</a>
+
+<div id="NovosRegistroDeRequisicoes">
+    @{ 
+        @@Html.RenderPartial("FiltrarRequisicoes");
+    }
+</div>
+
+<br />
+<!--HTML DETALHES REQUISICAO-->
+<div class="modal fade" id="MostrarDetalhesRequisicao">
+    <div class="modal-content">
+        <div id="loadingRequisicaoDetalhes_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Detalhes da Requisição</h3>
+        </div>
+        <div class="modal-body" id="DetalhesRequisicao">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="CancelDetalhesRequisicao">OK</a>
+        </div>
+    </div>
+</div>
+<!--POP UP PARA ACTUALIZAR REQUISICAO-->
+<div class="modal fade" id="ActualizarRequisicao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingATLRequisicao_1">
+            <img src="/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Dados Obrigatórios</h3>
+        </div>
+        <div class="modal-body" id="ATLRequisicao">
+            <div class="container">
+                <h2>Datalhes da actualição</h2>
+                <br />
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <select id="EstadoRequisicao" name="EstadoRequisicao">
+                            <option value="">Estado da Requisição</option>
+                            <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <select id="Produto" name="Produto">
+                            <option value="">Nome do produto</option>
+                            <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <select id="TipoRequisicao" name="TipoRequisicao">
+                            <option value="">Tipo da Requisicao</option>
+                            <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <select id="Quantidade" name="Quantidade">
+                            <option value="0">Tipo da Requisicao</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">+10</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-success" data-dismiss="modal" id="SubmiteActualizacao">Guardar</a>
+            <a href="#" class="btn btn-default" data-dismiss="modal" id="CancelarActualizacao">Cancelar</a>
+        </div>
+    </div>
+</div>
+
+<!--JAVASCRIPT CODE ACTUALIZAR-->
+<script type="text/javascript">
+    var ActualizarRequisicao = function(ID)
+    {
+        $('#loadingATLRequisicao_1').show();
+        $('#ActualizarRequisicao').modal('show');
+        $('#SubmiteActualizacao').click(function ()
+        {
+                  var produto = 2//document.getElementById("Produto").value;
+                  var estado = 3//document.getElementById("EstadoRequisicao").value;
+                  var tiporequisicao = 4//document.getElementById("TipoRequisicao").value;
+                  var QTD = document.getElementById("Quantidade").value;
+                  alert(ID, produto, estado, QTD);
+                  $.ajax({
+                      type:'POST',
+                      url:'/VerRequisicoes/ActualizarRequisicoes',
+                      data:{ id: ID, idProduto: produto, idEstado: estado, idTiporequisicao: tiporequisicao, qtd: QTD },
+                      sucess: {
+                          function() {
+                              $('#loadingATLRequisicao_1').hide();
+                          }
+                      }
+                  });
+              }
+
+            );
+    }
+
+</script>
+<!--JAVASCRIPT CODE DETALHES-->
+<script type="text/javascript">
+    var DetalhesRequisicao = function(ID)
+    {
+        alert("Ola Nuno");
+        var URL = '/VerRequisicoes/DetalhesRequisicoes?id=' + ID;
+
+        $('#loadingRequisicaoDetalhes_1').show();
+        $('#DetalhesRequisicao').load(URL, function ()
+        {
+            $('#MostrarDetalhesRequisicao').modal('show');
+            $('#loadingRequisicaoDetalhes_1').hide();
+        });
+    }
+</script>
+<!--JAVASCRIPT CODE APLICAR FILTROS-->
+<script type="text/javascript">
+    var AplicarFiltrosRequisicao = function()
+    {
+        var filtro = document.getElementById("IdFiltroRequisicoes").value;
+        $.ajax({
+            type: 'GET',
+            url: '/VerRequisicoes/FiltrarRequisicoes',
+            dataType: 'html',
+            cache: false,
+            async: true,
+            data: { id: filtro },
+            success: function (data) { $('#NovosRegistroDeRequisicoes').html(data); }
+        });
+    }
+</script>
+
+
+ 

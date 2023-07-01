@@ -1,0 +1,157 @@
+﻿@model Getch_website.Model_View.DadosRequisicaoDeProdutos
+
+@{
+    ViewBag.Title = "DadosDaRequisicao";
+}
+
+<h2>FAZER REQUISIÇÕES</h2>
+<br />
+
+<form action="/RegistrarRequisicao/DadosDaRequisicao" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="0vk9u6lU-7dM2-CaJ9UosooPiX2ygbLX9AZtKiGAv2KlNKXFIR9UdzRLK5-YBXRCcKuCvvfJrZP4sXDUR63rrEQv0hpSbjNDno2-Fcz3exo1" />    <div class="form-horizontal">
+        <h4>Detalhes do pedido</h4>
+        <hr />
+      <div class="form-group">
+          <div class="col-md-12">
+              <textarea class="form-control" rows="2" data-val="true" data-val-length="O campo Descricao tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" data-val-regex="O campo Descricao tem de corresponder à expressão regular &#39;^\d{0}-[a-zA-Z]\d$&#39;." data-val-regex-pattern="^\d{0}-[a-zA-Z]\d$" data-val-required="O campo Descricao é necessário." id="Descricao" name="Descricao" type="text" value="" placeholder="Descrição do pedido" "></textarea>
+              <span class="field-validation-valid text-danger" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>
+          </div>
+            </div>
+        @*<div class="form-group">
+            @*<label class="control-label col-md-2" for="Descricao">Descrição do pedido</label>*@
+            @*<div class="col-md-10">*@
+                @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo Descricao tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" data-val-regex="O campo Descricao tem de corresponder à expressão regular &#39;^\d{0}-[a-zA-Z]\d$&#39;." data-val-regex-pattern="^\d{0}-[a-zA-Z]\d$" data-val-required="O campo Descricao é necessário." id="Descricao" name="Descricao" type="text" value="" placeholder="Descrição do pedido"/>*@
+                @*<span class="field-validation-valid text-danger" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>*@
+            @*</div>*@
+        @*</div>*@
+
+    <!--Produto Quantidade Estado da Requisicao-->
+       <div class="row">
+           <div class="col-sm-4">
+               <div class="form-group">
+                   @*<label class="control-label col-md-2" for="Quantidade">Quantidade</label>*@
+                   <div class="col-md-10">
+                       <input class="form-control text-box single-line" data-val="true" data-val-number="The field Quantidade must be a number." data-val-required="O campo Quantidade é necessário." id="Quantidade" name="Quantidade" type="text" value="" placeholder="Unidades" />
+                       <span class="field-validation-valid text-danger" data-valmsg-for="Quantidade" data-valmsg-replace="true"></span>
+                   </div>
+               </div>
+           </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdDoProduto">IdDoProduto</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("IdDoProduto", new SelectList(ViewBag.Produtos, "ID", "Nome"), "Produto")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdDoProduto must be a number." data-val-required="O campo IdDoProduto é necessário." id="IdDoProduto" name="IdDoProduto" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdDoProduto" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+     
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdEstadoDaRequisicao">IdEstadoDaRequisicao</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("IdEstadoDaRequisicao", new SelectList(ViewBag.EstadoDaRequisicao, "ID", "Descricao"), "Estado da Requisição")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdEstadoDaRequisicao must be a number." data-val-required="O campo IdEstadoDaRequisicao é necessário." id="IdEstadoDaRequisicao" name="IdEstadoDaRequisicao" type="number" value="" placeholder="Estado da Requisição"/>*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdEstadoDaRequisicao" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Codigo do Colaborador e do Apadrinhado-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="NomeApadrinhado">NomeApadrinhado</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="NomeApadrinhado" name="NomeApadrinhado" type="text" value="" placeholder="Nome do Apadrinhado"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeApadrinhado" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="ApelidoApadrinhado">ApelidoApadrinhado</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="ApelidoApadrinhado" name="ApelidoApadrinhado" type="text" value="" placeholder="Apelido do apadrinhado"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="ApelidoApadrinhado" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="TelefoneApadrinhado">TelefoneApadrinhado</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="TelefoneApadrinhado" name="TelefoneApadrinhado" type="text" value="" placeholder="Nº Telefone"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TelefoneApadrinhado" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+     <!--Nome e Apelido do Apdrinhado -->
+
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="CodigoColaborador">CodigoColaborador</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoColaborador é necessário." id="CodigoColaborador" name="CodigoColaborador" type="text" value="" placeholder="Código do Colaborador"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoColaborador" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="CodigoApadrinhado">CodigoApadrinhado</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="CodigoApadrinhado" name="CodigoApadrinhado" type="text" value="" placeholder="Código do Apadrinhado"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoApadrinhado" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+         <div class="form-group">
+            @*<label class="control-label col-md-2" for="DataDeAbertura">DataDeAbertura</label>*@
+            <div class="col-md-11">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeAbertura must be a date." data-val-required="O campo DataDeAbertura é necessário." id="DataDeAbertura" name="DataDeAbertura" type="datetime" value="" placeholder="Data de Requisição"/>
+                <span class="field-validation-valid text-danger" data-valmsg-for="DataDeAbertura" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+       </div>
+      </div>
+        @*<div class="form-group">
+            <label class="control-label col-md-2" for="DataDeFecho">DataDeFecho</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeFecho must be a date." data-val-required="O campo DataDeFecho é necessário." id="DataDeFecho" name="DataDeFecho" type="datetime" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="DataDeFecho" data-valmsg-replace="true"></span>
+            </div>
+        </div>*@
+
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Registar Requisição" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+     
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

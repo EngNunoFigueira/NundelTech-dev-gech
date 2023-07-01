@@ -1,0 +1,245 @@
+﻿@model Getch_website.Model_Consulta.ListaDeKwendy
+
+<form action="/VerKwendy/ActualizarFichaDoKwendy" method="post" id="DadosParaActualizar">
+    <input name="__RequestVerificationToken" type="hidden" value="fI9ZA8gwG48oGNNQpllEVdyhV_GnIYbXiltDNiojgem9Eo9sWSf_xkOhFkyS_NWVugquA2xlgUdsThHHd8hCFM2KPUmA2JSzWiOUR3RQZUM1" />    <div class="form-horizontal">
+        <h4>Informação Actual</h4>
+        <hr />
+
+        <input data-val="true" data-val-number="The field ID must be a number." data-val-required="O campo ID é necessário." id="ID" name="ID" type="hidden" value="1" />
+
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="form-group">
+                  <label class="control-label col-md-7" for="Nome">Nome</label>
+                  <div class="col-md-10">
+                      <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Nome é necessário." id="Nome" name="Nome" type="text" value="António Filipe" />
+                      <span class="field-validation-valid text-danger" data-valmsg-for="Nome" data-valmsg-replace="true"></span>
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="Apelido">Apelido</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Apelido é necessário." id="Apelido" name="Apelido" type="text" value="Brito" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Apelido" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="DataDeNascimento">Data de Nascimento</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeNascimento must be a date." data-val-required="O campo DataDeNascimento é necessário." id="DataDeNascimento" name="DataDeNascimento" type="text" value="11-06-2017" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeNascimento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="Sexo">Sexo</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Sexo é necessário." id="Sexo" name="Sexo" type="text" value="Masculino" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Sexo" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="Idade">Idade</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field Idade must be a number." data-val-required="O campo Idade é necessário." id="Idade" name="Idade" type="text" value="13" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Idade" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="EstadoCivil">Estado civil</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo EstadoCivil é necessário." id="EstadoCivil" name="EstadoCivil" type="text" value="Solteiro" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="EstadoCivil" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="TipoDocumentoDeIndetidade">Documento</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo TipoDocumentoDeIndetidade é necessário." id="TipoDocumentoDeIndetidade" name="TipoDocumentoDeIndetidade" type="text" value="BI" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TipoDocumentoDeIndetidade" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+
+            <div class="form-group">
+                <label class="control-label col-md-7" for="NumeroDoDocumento">Número</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NumeroDoDocumento é necessário." id="NumeroDoDocumento" name="NumeroDoDocumento" type="text" value="000490LDAF021" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDoDocumento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="DataDeValidadeDoDocumentoDeIdentidade">Data de Validade</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeValidadeDoDocumentoDeIdentidade must be a date." data-val-required="O campo DataDeValidadeDoDocumentoDeIdentidade é necessário." id="DataDeValidadeDoDocumentoDeIdentidade" name="DataDeValidadeDoDocumentoDeIdentidade" type="text" value="11-06-2017" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeValidadeDoDocumentoDeIdentidade" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="ccontrol-label col-md-7" for="DataDeEmissaoDoDocumentoDeIdentidade">Data de Emissão</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeEmissaoDoDocumentoDeIdentidade must be a date." data-val-required="O campo DataDeEmissaoDoDocumentoDeIdentidade é necessário." id="DataDeEmissaoDoDocumentoDeIdentidade" name="DataDeEmissaoDoDocumentoDeIdentidade" type="text" value="11-06-2017" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeEmissaoDoDocumentoDeIdentidade" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+          <div class="col-sm-4">
+              <div class="form-group">
+                  <label class="control-label col-md-7" for="NomeDaProvincia">Provincía</label>
+                  <div class="col-md-10">
+                      <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NomeDaProvincia é necessário." id="NomeDaProvincia" name="NomeDaProvincia" type="text" value="Luanda" />
+                      <span class="field-validation-valid text-danger" data-valmsg-for="NomeDaProvincia" data-valmsg-replace="true"></span>
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="NomeDoMunicipio">Município</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NomeDoMunicipio é necessário." id="NomeDoMunicipio" name="NomeDoMunicipio" type="text" value="Maianga" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeDoMunicipio" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="Morada">Morada</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Morada é necessário." id="Morada" name="Morada" type="text" value="Rui Biologo Pedro Lara" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Morada" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="NomeDoBairro">Bairro</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NomeDoBairro é necessário." id="NomeDoBairro" name="NomeDoBairro" type="text" value="Alvalade" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeDoBairro" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="NumeroDaPorta">Número da Porta</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NumeroDaPorta é necessário." id="NumeroDaPorta" name="NumeroDaPorta" type="text" value="124B" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDaPorta" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="CodigoPostal">Código Postal</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoPostal é necessário." id="CodigoPostal" name="CodigoPostal" type="text" value="1001-024" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoPostal" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="TelefonePrimario">Telemóvel</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo TelefonePrimario é necessário." id="TelefonePrimario" name="TelefonePrimario" type="text" value="957200011" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TelefonePrimario" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="Email">Correio Electrónico</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Email é necessário." id="Email" name="Email" type="text" value="100afb@bjc.ao" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="NomeResponsavel">Nome do Responsável</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NomeResponsavel é necessário." id="NomeResponsavel" name="NomeResponsavel" type="text" value="Alberto" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NomeResponsavel" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+          <div class="col-sm-4">
+              <div class="form-group">
+                  <label class="control-label col-md-7" for="ApelidoResponsavel">Apelido do Responsável</label>
+                  <div class="col-md-10">
+                      <input class="form-control text-box single-line" data-val="true" data-val-required="O campo ApelidoResponsavel é necessário." id="ApelidoResponsavel" name="ApelidoResponsavel" type="text" value="Brito" />
+                      <span class="field-validation-valid text-danger" data-valmsg-for="ApelidoResponsavel" data-valmsg-replace="true"></span>
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="CodigoResponsavel">Código de Associado</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoResponsavel é necessário." id="CodigoResponsavel" name="CodigoResponsavel" type="text" value="2011AFB08" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoResponsavel" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-7" for="DescricaoDaParticipacao">Grau de participação</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo DescricaoDaParticipacao é necessário." id="DescricaoDaParticipacao" name="DescricaoDaParticipacao" type="text" value="98%" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DescricaoDaParticipacao" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+@*<div>
+    <a href="/VerKwendy">Back to List</a>
+</div>*@

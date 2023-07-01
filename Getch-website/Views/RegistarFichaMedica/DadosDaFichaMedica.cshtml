@@ -1,0 +1,332 @@
+﻿@model Getch_website.Model_View.DadosRegistoDaFichaMedica
+
+@{
+    ViewBag.Title = "DadosDaFichaMedica";
+}
+
+<h2>CRIAR FICHA MÉDICA</h2>
+<br />
+<form action="/RegistarFichaMedica/DadosDaFichaMedica" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="oN40vBKkBdfuHmL39smQkSwvv0SRbjrciXZg1U8jmcKGNCAtGprNZGK8_9baq8caX1hAPDHrLI817JvtB-L_EEjw5eepvKkwyygta6KmfsY1" />    <div class="form-horizontal">
+        <h4>Informação do utente</h4>
+        <hr />
+    <!--Codigo e data abertura da ficha-->
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="form-group">
+                  <div class="col-md-10">
+                      <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataAbertura must be a date." data-val-required="O campo CodigoUtente é necessário." id="CodigoUtente" name="CodigoUtente" type="text" value="" placeholder="Código de apadrinhado:" />
+                      <span class="field-validation-valid text-danger" data-valmsg-for="CodigoUtente" data-valmsg-replace="true"></span>
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdKwendy">IdKwendy</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field IdKwendy must be a number." data-val-required="O campo IdKwendy é necessário." id="IdKwendy" name="IdKwendy" type="text" value="" placeholder="Telefone:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdKwendy" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="DataAbertura">DataAbertura</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataAbertura must be a date." data-val-required="O campo DataAbertura é necessário." id="DataAbertura" name="DataAbertura" type="text" value="" placeholder="Data de abertura:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataAbertura" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Peso actual e estado psicologico-->
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="form-group">
+                  <div class="col-md-10">
+                      <input class="form-control text-box single-line" data-val="true" data-val-number="The field Altura must be a number." data-val-required="O campo Altura é necessário." id="Altura" name="Altura" type="text" value="" placeholder="Altura" />
+                      <span class="field-validation-valid text-danger" data-valmsg-for="Altura" data-valmsg-replace="true"></span>
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="PesoActual">PesoActual</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field PesoActual must be a number." data-val-required="O campo PesoActual é necessário." id="PesoActual" name="PesoActual" type="text" value="" placeholder="Peso actual kg:" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PesoActual" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="EstadoPsicologico">EstadoPsicologico</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo EstadoPsicologico é necessário." id="EstadoPsicologico" name="EstadoPsicologico" type="text" value="" placeholder="Estado psicológico:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="EstadoPsicologico" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Alergia Cirugias Fracturas--> 
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Alergias">Alergias</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <input class="check-box" data-val="true" data-val-required="O campo Alergias é necessário." id="Alergias" name="Alergias" type="checkbox" value="true" /><input name="Alergias" type="hidden" value="false" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Alergias" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="PrimeiraAlergia">PrimeiraAlergia</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("PrimeiraAlergia", new SelectList(ViewBag.Alergia, "ID", "Descricao"), "1º Alergia")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo PrimeiraAlergia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="PrimeiraAlergia" name="PrimeiraAlergia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PrimeiraAlergia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="SegundaAlergia">SegundaAlergia</label>*@
+                <div class="col-md-10">
+                     @Html.DropDownList("SegundaAlergia", new SelectList(ViewBag.Alergia, "ID", "Descricao"), "2º Alergia")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo SegundaAlergia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="SegundaAlergia" name="SegundaAlergia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="SegundaAlergia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="TerceiraAlergia">TerceiraAlergia</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("TerceiraAlergia", new SelectList(ViewBag.Alergia, "ID", "Descricao"), "3º Alergia")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo TerceiraAlergia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="TerceiraAlergia" name="TerceiraAlergia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TerceiraAlergia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="QuartaAlergia">QuartaAlergia</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("QuartaAlergia", new SelectList(ViewBag.Alergia, "ID", "Descricao"), "4º Alergia")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo QuartaAlergia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="QuartaAlergia" name="QuartaAlergia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="QuartaAlergia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Fracturas">Fracturas</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <input class="check-box" data-val="true" data-val-required="O campo Fracturas é necessário." id="Fracturas" name="Fracturas" type="checkbox" value="true" /><input name="Fracturas" type="hidden" value="false" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Fracturas" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="Perna">Perna</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("Perna", new SelectList(ViewBag.Fractura, "ID", "Descricao"), "1º Fractura")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo Perna tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="Perna" name="Perna" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Perna" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="Bracos">Bracos</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("Bracos", new SelectList(ViewBag.Fractura, "ID", "Descricao"), "2º Fractura")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo Bracos tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="Bracos" name="Bracos" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Bracos" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="Cabeca">Cabeca</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("Cabeca", new SelectList(ViewBag.Fractura, "ID", "Descricao"), "3º Fractura")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo Cabeca tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="Cabeca" name="Cabeca" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Cabeca" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="Coluna">Coluna</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("Coluna", new SelectList(ViewBag.Fractura, "ID", "Descricao"), " 4º Fractura")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo Coluna tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="Coluna" name="Coluna" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Coluna" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+    <!--Doencas Hereditarias e Cirugias-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="DoencasHereditaria">Doenças</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <input class="check-box" data-val="true" data-val-required="O campo DoencasHereditaria é necessário." id="DoencasHereditaria" name="DoencasHereditaria" type="checkbox" value="true" /><input name="DoencasHereditaria" type="hidden" value="false" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="DoencasHereditaria" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="PrimeiraDoencasHereditaria">PrimeiraDoencasHereditaria</label>*@
+                <div class="col-md-10">1º 
+                    @Html.DropDownList("PrimeiraDoencasHereditaria", new SelectList(ViewBag.DoencasHereditarias, "ID", "Descricao"), "1º Doença")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo PrimeiraDoencasHereditaria tem de ser uma cadeia com o comprimento máximo de 70." data-val-length-max="70" id="PrimeiraDoencasHereditaria" name="PrimeiraDoencasHereditaria" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PrimeiraDoencasHereditaria" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="SegundaDoencasHereditaria">SegundaDoencasHereditaria</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("SegundaDoencasHereditaria", new SelectList(ViewBag.DoencasHereditarias, "ID", "Descricao"), "2º Doença")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo SegundaDoencasHereditaria tem de ser uma cadeia com o comprimento máximo de 70." data-val-length-max="70" id="SegundaDoencasHereditaria" name="SegundaDoencasHereditaria" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="SegundaDoencasHereditaria" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="TerceiraDoencasHereditaria">TerceiraDoencasHereditaria</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("TerceiraDoencasHereditaria", new SelectList(ViewBag.DoencasHereditarias, "ID", "Descricao"), "3º Doença")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo TerceiraDoencasHereditaria tem de ser uma cadeia com o comprimento máximo de 70." data-val-length-max="70" id="TerceiraDoencasHereditaria" name="TerceiraDoencasHereditaria" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TerceiraDoencasHereditaria" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="QuartaDoencasHereditaria">QuartaDoencasHereditaria</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("QuartaDoencasHereditaria", new SelectList(ViewBag.DoencasHereditarias, "ID", "Descricao"), "4º Doença")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo QuartaDoencasHereditaria tem de ser uma cadeia com o comprimento máximo de 70." data-val-length-max="70" id="QuartaDoencasHereditaria" name="QuartaDoencasHereditaria" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="QuartaDoencasHereditaria" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="CirugiasRealizadas">Cirugias</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <input class="check-box" data-val="true" data-val-required="O campo CirugiasRealizadas é necessário." id="CirugiasRealizadas" name="CirugiasRealizadas" type="checkbox" value="true" /><input name="CirugiasRealizadas" type="hidden" value="false" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CirugiasRealizadas" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="PrimeiraCirugia">PrimeiraCirugia</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("PrimeiraCirugia", new SelectList(ViewBag.Cirugia, "ID", "Descricao"), "1º Cirugias")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo PrimeiraCirugia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="PrimeiraCirugia" name="PrimeiraCirugia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="PrimeiraCirugia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="SegundaCirugia">SegundaCirugia</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("PrimeiraCirugia", new SelectList(ViewBag.Cirugia, "ID", "Descricao"), "2º Cirugias")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo SegundaCirugia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="SegundaCirugia" name="SegundaCirugia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="SegundaCirugia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="TerceiraCirugia">TerceiraCirugia</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("TerceiraCirugia", new SelectList(ViewBag.Cirugia, "ID", "Descricao"), "3º Cirugias")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo TerceiraCirugia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="TerceiraCirugia" name="TerceiraCirugia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TerceiraCirugia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="QuartaCirugia">QuartaCirugia</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("QuartaCirugia", new SelectList(ViewBag.Cirugia, "ID", "Descricao"), "4º Cirugias")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-length="O campo QuartaCirugia tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="QuartaCirugia" name="QuartaCirugia" type="text" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="QuartaCirugia" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>   
+       <!--Problemas de visao--> 
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="ProblemasDeVisao">Visão</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <input class="check-box" data-val="true" data-val-required="O campo ProblemasDeVisao é necessário." id="ProblemasDeVisao" name="ProblemasDeVisao" type="checkbox" value="true" /><input name="ProblemasDeVisao" type="hidden" value="false" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="ProblemasDeVisao" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="GraduacaoActual">Graduação</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-length="O campo GraduacaoActual tem de ser uma cadeia com o comprimento máximo de 200." data-val-length-max="200" id="GraduacaoActual" name="GraduacaoActual" type="text" value="" placeholder="Graduação:" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="GraduacaoActual" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+    <!--Relatorio medico-->
+        <div class="form-group">
+            @*<label class="control-label col-md-2" for="RelatorioMedico">RelatorioMedico</label>*@
+            <div class="col-md-10">
+                <textarea class="form-control text-box multi-line" data-val="true" data-val-length="O campo RelatorioMedico tem de ser uma cadeia com o comprimento máximo de 300." data-val-length-max="300" data-val-required="O campo RelatorioMedico é necessário." id="RelatorioMedico" name="RelatorioMedico" placeholder="Relatório médico"></textarea>
+                <span class="field-validation-valid text-danger" data-valmsg-for="RelatorioMedico" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+       <!--Botao submit-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Guardar Dados" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            </div>
+
+        <div class="col-sm-4">
+            </div>
+    </div>
+      
+    </div>
+</form>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

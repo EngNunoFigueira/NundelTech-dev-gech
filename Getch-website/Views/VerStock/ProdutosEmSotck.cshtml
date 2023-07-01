@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListDeProdutosEmStock>
+
+@{
+    ViewBag.Title = "ProdutosEmSotck";
+}
+
+<script src="http://localhost:58949/scripts/jquery-1.12.4.min.js"></script>
+<script src="http://localhost:58949/scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2>PRODUTOS</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+
+<!--HTML POP UP GET FICHA DO PRODUTO-->
+<div class="modal fade" id="FichaProduto">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loading-fchPRD">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Ficha do Produto</h3>
+            <div id="Descricao">
+
+            </div>
+        </div>
+        <div class="modal-body" id="DetalhesProduto">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-default" data-dismiss="modal" id="cancel"> Sair</a>
+        </div>
+    </div>
+</div>
+<!--End-->
+
+<!--END-->
+<table class="table">
+    <tr>
+        <th>
+           Produto
+        </th>
+        <th>
+          Genero
+        </th>
+        <th>
+          Categoria
+        </th>
+        <th>
+           Quantidades
+        </th>
+        <th>
+            Unidades/Caixa
+        </th>
+        <th>
+           Kg/unidade
+        </th>
+        <th>
+         Data-validade
+        </th>
+        <th>
+           Entrada
+        </th>
+        <th>
+           Armazém
+        </th>
+        <th>
+           Contacto
+        </th>
+        <th>Detalhes</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDoProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneroDoProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoriaDoProduto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unidades)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KilosPorUnidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDeValidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDeEntraDoArmazem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDoArmazem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefoneDoArmazem)
+        </td>
+        <td>
+            <a href="#" class="btn btn-primary" onclick="ProdutoDetalhes(@item.ID)">Ficha do Produto</a>
+        </td>
+    </tr>
+}
+</table>
+<!--LOAD METHOD TO GET-->
+<script>
+    var ProdutoDetalhes = function (ID_produto)
+                        {
+                            var url ="/VerStock/FichaDoProduto?id="+ID_produto;
+                            $("#DetalhesProduto").load(url, function () {
+                            $("#FichaProduto").modal('show');
+                            });
+                         }
+</script>

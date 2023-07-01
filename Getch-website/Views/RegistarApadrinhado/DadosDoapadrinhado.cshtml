@@ -1,0 +1,474 @@
+﻿@model Getch_website.Model_View.DadosDeRegistoDoApadrinhado
+
+@{
+    ViewBag.Title = "Registar Apadrinhado";
+}
+
+<h2>REGISTO DE ADULTOS</h2>
+<br />
+<form action="/RegistarApadrinhado/DadosDoapadrinhado" method="post">
+    <input name="__RequestVerificationToken" type="hidden" value="TX9I6_vG4tcFPl_fgVhrFwAW9pXKFo2WgJyk0wu4OTAABWl4Rk7hI-L1s2FC3VYy14El6BPzTa-vNVd2lPVGwJEYk4HTnbMHrBixjFFmgKQ1" />    <div class="form-horizontal">
+        <h4>Informação necessária</h4>
+        <hr />
+        <!--Nome Apelido Idade-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="Nome">Nome</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Nome é necessário." id="Nome" name="Nome" type="text" value="" placeholder="Nome" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Nome" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="Apelido">Apelido</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Apelido é necessário." id="Apelido" name="Apelido" type="text" value="" placeholder="Apelido" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Apelido" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="Idade">Idade</label>*@
+                    <div class="col-md-11">
+                        <!--
+                            <input class="form-control text-box single-line" data-val="true" data-val-number="The field Idade must be a number." data-val-required="O campo Idade é necessário." id="Idade" name="Idade" type="text" value="" placeholder="Idade" />
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Idade" data-valmsg-replace="true"></span>
+                        -->
+                        <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeNascimento must be a date." data-val-required="O campo DataDeNascimento é necessário." id="DataDeNascimento" name="DataDeNascimento" type="date" value="" placeholder="data de nascimento" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="DataDeValidadeDoDocumentoDeIdentidade" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Sexo Estado civil Data de nascimento-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdSexo">IdSexo</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdSexo", new SelectList(ViewBag.Sexo, "ID", "Descricao"), "Sexo")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdSexo must be a number." data-val-required="O campo IdSexo é necessário." id="IdSexo" name="IdSexo" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdSexo" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdEstadoCivil">IdEstadoCivil</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdEstadoCivil", new SelectList(ViewBag.EstadoCivil, "ID", "Descricao"), "Estado cívil")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdEstadoCivil must be a number." data-val-required="O campo IdEstadoCivil é necessário." id="IdEstadoCivil" name="IdEstadoCivil" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdEstadoCivil" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                     <div class="col-md-10">
+                          @Html.DropDownList("LocalDeEmissaoDoBI", new SelectList(ViewBag.LocalDeEmissaoDoDocumento, "ID", "Descricao"), "Local de emissão do Bi / Pass /C.pessoal")
+                          <span class="field-validation-valid text-danger" data-valmsg-for="LocalDeEmissaoDoBI" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Nº doc Data emissao Data Validade-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="NumeroDoDocumento">NumeroDoDocumento</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NumeroDoDocumento é necessário." id="NumeroDoDocumento" name="NumeroDoDocumento" type="text" value="" placeholder="Nº do documento" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDoDocumento" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="DataDeEmissaoDoDocumentoDeIdentidade">DataDeEmissaoDoDocumentoDeIdentidade</label>*@
+                    <div class="col-md-11">
+                        <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeEmissaoDoDocumentoDeIdentidade must be a date." data-val-required="O campo DataDeEmissaoDoDocumentoDeIdentidade é necessário." id="DataDeEmissaoDoDocumentoDeIdentidade" name="DataDeEmissaoDoDocumentoDeIdentidade" type="date" value="" placeholder="Data de emissão" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="DataDeEmissaoDoDocumentoDeIdentidade" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="DataDeValidadeDoDocumentoDeIdentidade">DataDeValidadeDoDocumentoDeIdentidade</label>*@
+                    <div class="col-md-11">
+                        <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeValidadeDoDocumentoDeIdentidade must be a date." data-val-required="O campo DataDeValidadeDoDocumentoDeIdentidade é necessário." id="DataDeValidadeDoDocumentoDeIdentidade" name="DataDeValidadeDoDocumentoDeIdentidade" type="date" value="" placeholder="Data de validade" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="DataDeValidadeDoDocumentoDeIdentidade" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Local de Emissao do BI, Fotografia, Fotocopia-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Morada é necessário." id="Fotografia" name="Fotografia" type="text" value="" placeholder="Fotográfia" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Fotografia" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="É obrigatório a cópia do BI" id="FotocopiaDoc" name="FotocopiaDoc" type="text" value="" placeholder="Cópia do BI" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="FotocopiaDoc" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Local de emissão é necessário." id="LocalDeEmissaoDoBI" name="LocalDeEmissaoDoBI" type="text" value="" placeholder="Local de Emissão do Documento" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="LocalDeEmissaoDoBI" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Mora Nº da porta Código Posta-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="Morada">Morada</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Morada é necessário." id="Morada" name="Morada" type="text" value="" placeholder="Morada" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Morada" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="CodigoPostal">CodigoPostal</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoPostal é necessário." id="CodigoPostal" name="CodigoPostal" type="text" value="" placeholder="Código postal" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CodigoPostal" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="NumeroDaPorta">NumeroDaPorta</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo NumeroDaPorta é necessário." id="NumeroDaPorta" name="NumeroDaPorta" type="text" value="" placeholder="Nº da porta" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDaPorta" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Bairro Município Provincia-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdBairro">IdBairro</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdBairro", new SelectList(ViewBag.Bairro, "ID", "Descricao"), "Bairro")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdBairro must be a number." data-val-required="O campo IdBairro é necessário." id="IdBairro" name="IdBairro" type="number" value="" placeholder="Bairro"/>*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdBairro" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdMunicipio">IdMunicipio</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdMunicipio", new SelectList(ViewBag.Municipio, "ID", "Descricao"), "Município")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdMunicipio must be a number." data-val-required="O campo IdMunicipio é necessário." id="IdMunicipio" name="IdMunicipio" type="number" value="" placeholder="Município"/>*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdMunicipio" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdProvincia">IdProvincia</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdProvincia", new SelectList(ViewBag.Provincia, "ID", "Descricao"), "Provincia")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdProvincia must be a number." data-val-required="O campo IdProvincia é necessário." id="IdProvincia" name="IdProvincia" type="number" value="" placeholder="Provincia"/>*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdProvincia" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Email Telefone Telemovel-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="Email">Email</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Email é necessário." id="Email" name="Email" type="text" value="" placeholder="Email" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="TelefoneFixo">TelefoneFixo</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo TelefoneFixo é necessário." id="TelefoneFixo" name="TelefoneFixo" type="text" value="" placeholder="Telefone fixo" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="TelefoneFixo" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="Telemovel">Telemovel</label>*@
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Telemovel é necessário." id="Telemovel" name="Telemovel" type="text" value="" placeholder="Telemóvel" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Telemovel" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Estudos Estado Laboral Funcao-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdEstudo">IdEstudo</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdEstudo", new SelectList(ViewBag.Estudo, "ID", "Descricao"), "Nível de estudos")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdEstudo must be a number." data-val-required="O campo IdEstudo é necessário." id="IdEstudo" name="IdEstudo" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdEstudo" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdEstadoLaboral">IdEstadoLaboral</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdEstadoLaboral", new SelectList(ViewBag.Estudo, "ID", "Descricao"), "Situação laboral")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdEstadoLaboral must be a number." data-val-required="O campo IdEstadoLaboral é necessário." id="IdEstadoLaboral" name="IdEstadoLaboral" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdEstadoLaboral" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdFuncao">IdFuncao</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdFuncao", new SelectList(ViewBag.Funcao, "ID", "Descricao"), "Função")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdFuncao must be a number." data-val-required="O campo IdFuncao é necessário." id="IdFuncao" name="IdFuncao" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdFuncao" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Nº de filhos Nº de crianças a cargo Departamento-->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="IdDepartamento">IdDepartamento</label>*@
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdDepartamento", new SelectList(ViewBag.Funcao, "ID", "Descricao"), "Departamento em que trabalha")
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdDepartamento must be a number." data-val-required="O campo IdDepartamento é necessário." id="IdDepartamento" name="IdDepartamento" type="number" value="" />*@
+                        <span class="field-validation-valid text-danger" data-valmsg-for="IdDepartamento" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="NumeroDeFilhos">NumeroDeFilhos</label>*@
+                    <div class="col-md-10">
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field NumeroDeFilhos must be a number." data-val-required="O campo NumeroDeFilhos é necessário." id="NumeroDeFilhos" name="NumeroDeFilhos" type="number" value="" />*@
+                        <select data-val="true" data-val-number="The field NumeroDeFilhos must be a number." data-val-required="O campo NumeroDeFilhos é necessário." id="NumeroDeFilhos" name="NumeroDeFilhos">
+                            <option value="">Número de filhos        </option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">15</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                            <option value="36">36</option>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                            <option value="45">45</option>
+                            <option value="46">46</option>
+                            <option value="47">47</option>
+                            <option value="48">48</option>
+                            <option value="49">49</option>
+                            <option value="50">50</option>
+                            <option value="51">51</option>
+                            <option value="52">52</option>
+                            <option value="53">53</option>
+                            <option value="54">54</option>
+                            <option value="55">55</option>
+                            <option value="56">56</option>
+                            <option value="57">57</option>
+                            <option value="58">58</option>
+                            <option value="59">59</option>
+                            <option value="60">60</option>
+                            <option value="61">61</option>
+                            <option value="62">62</option>
+                            <option value="63">63</option>
+                            <option value="64">64</option>
+                            <option value="65">65</option>
+                            <option value="66">66</option>
+                            <option value="67">67</option>
+                            <option value="68">68</option>
+                            <option value="69">69</option>
+                            <option value="70">70</option>
+                        </select>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="NumeroDeFilhos" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @*<label class="control-label col-md-2" for="CriancasACargo">CriancasACargo</label>*@
+                    <div class="col-md-10">
+                        @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field CriancasACargo must be a number." data-val-required="O campo CriancasACargo é necessário." id="CriancasACargo" name="CriancasACargo" type="number" value="" />*@
+                        <select data-val="true" data-val-number="The field NumeroDeFilhos must be a number." data-val-required="O campo NumeroDeFilhos é necessário." id="NumeroDeFilhos" name="NumeroDeFilhos">
+                            <option value="">Número de crianças a cargo    </option>>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">15</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                            <option value="36">36</option>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                            <option value="45">45</option>
+                            <option value="46">46</option>
+                            <option value="47">47</option>
+                            <option value="48">48</option>
+                            <option value="49">49</option>
+                            <option value="50">50</option>
+                            <option value="51">51</option>
+                            <option value="52">52</option>
+                            <option value="53">53</option>
+                            <option value="54">54</option>
+                            <option value="55">55</option>
+                            <option value="56">56</option>
+                            <option value="57">57</option>
+                            <option value="58">58</option>
+                            <option value="59">59</option>
+                            <option value="60">60</option>
+                            <option value="61">61</option>
+                            <option value="62">62</option>
+                            <option value="63">63</option>
+                            <option value="64">64</option>
+                            <option value="65">65</option>
+                            <option value="66">66</option>
+                            <option value="67">67</option>
+                            <option value="68">68</option>
+                            <option value="69">69</option>
+                            <option value="70">70</option>
+                        </select>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CriancasACargo" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="form-group">
+                <label class="control-label col-md-2" for="IdGrauDeParticipacao">IdGrauDeParticipacao</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field IdGrauDeParticipacao must be a number." data-val-required="O campo IdGrauDeParticipacao é necessário." id="IdGrauDeParticipacao" name="IdGrauDeParticipacao" type="number" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdGrauDeParticipacao" data-valmsg-replace="true"></span>
+                </div>
+            </div>*@
+        @*<div class="form-group">
+                <label class="control-label col-md-2" for="DataDeNascimento">DataDeNascimento</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-date="The field DataDeNascimento must be a date." data-val-required="O campo DataDeNascimento é necessário." id="DataDeNascimento" name="DataDeNascimento" type="date" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DataDeNascimento" data-valmsg-replace="true"></span>
+                </div>
+            </div>*@
+        <div class="form-group">
+            <div class="col-md-offset-12 col-md-10">
+                <input type="submit" value="Finalizar Registo" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,213 @@
+﻿@model Getch_website.Model_View.DadosDoAcompanhamentoEscolar
+
+@{
+    ViewBag.Title = "DadosDoAcompamentoEscolar";
+}
+
+<h2>PLANOS DE ESTUDOS</h2>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CodigoDoKwendy é necessário." id="CodigoDoKwendy" name="CodigoDoKwendy" type="text" value="" placeholder="Código apadrinhado:" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CodigoDoKwendy" data-valmsg-replace="true"></span>
+                </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="Nome">Nome</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Nome é necessário." id="Nome" name="Nome" type="text" value="" placeholder="Nome:" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Nome" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="Apelido">Apelido</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Apelido é necessário." id="Apelido" name="Apelido" type="text" value="" placeholder="Apelido:" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Apelido" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+     <!--Ano lectico Escola e Ciclo formativo-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="AnoLectivo">AnoLectivo</label>*@
+                <div class="col-md-10">
+                    <select data-val="true" data-val-number="The field IdCicloFormativo must be a number." data-val-required="O campo IdCicloFormativo é necessário." id="IdCicloFormativo" name="IdCicloFormativo">
+                        <option value="0">Ano lectivo</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021'">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                    </select>
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-date="The field AnoLectivo must be a date." data-val-required="O campo AnoLectivo é necessário." id="AnoLectivo" name="AnoLectivo" type="date" value="" placeholder="Ano lectivo"/>*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="AnoLectivo" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdInstituicaoDeEnsino">IdInstituicaoDeEnsino</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("IdInstituicaoDeEnsino", new SelectList(ViewBag.InstituicaoDeEnsino, "ID", "Descricao"), "Instituição de ensino")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdInstituicaoDeEnsino must be a number." data-val-required="O campo IdInstituicaoDeEnsino é necessário." id="IdInstituicaoDeEnsino" name="IdInstituicaoDeEnsino" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdInstituicaoDeEnsino" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="IdCicloFormativo">IdCicloFormativo</label>*@
+                <div class="col-md-10">
+                    @Html.DropDownList("IdCicloFormativo", new SelectList(ViewBag.CicloFormativo, "ID", "Descricao"), "Ciclo formativo")
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field IdCicloFormativo must be a number." data-val-required="O campo IdCicloFormativo é necessário." id="IdCicloFormativo" name="IdCicloFormativo" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="IdCicloFormativo" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+     <!--Nota P S; Nota SS; NOta TS-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="MediaDoPrimeiroSemestre">MediaDoPrimeiroSemestre</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field MediaDoPrimeiroSemestre must be a number." data-val-required="O campo MediaDoPrimeiroSemestre é necessário." id="MediaDoPrimeiroSemestre" name="MediaDoPrimeiroSemestre" type="text" value="" placeholder="Nota primeiro semestre:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="MediaDoPrimeiroSemestre" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="MediaDoSegundoSemestre">MediaDoSegundoSemestre</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field MediaDoSegundoSemestre must be a number." data-val-required="O campo MediaDoSegundoSemestre é necessário." id="MediaDoSegundoSemestre" name="MediaDoSegundoSemestre" type="text" value="" placeholder="Nota segundo semestre:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="MediaDoSegundoSemestre" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="MediaDoTerceiroSemestre">MediaDoTerceiroSemestre</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field MediaDoTerceiroSemestre must be a number." data-val-required="O campo MediaDoTerceiroSemestre é necessário." id="MediaDoTerceiroSemestre" name="MediaDoTerceiroSemestre" type="text" value="" placeholder="Nota terceiro semestre:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="MediaDoTerceiroSemestre" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Classe e -->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="AnoDeCurso">AnoDeCurso</label>*@
+                <div class="col-md-10">
+                    <select data-val="true" data-val-number="The field IdCicloFormativo must be a number." data-val-required="O campo IdCicloFormativo é necessário." id="IdCicloFormativo" name="IdCicloFormativo">
+                        <option value="">Classe</option>
+                        <option value="1">1º</option>
+                        <option value="2">2º</option>
+                        <option value="3">3º</option>
+                        <option value="4">4º</option>
+                        <option value="5">5º</option>
+                        <option value="6">6º</option>
+                        <option value="7">7º</option>
+                        <option value="8">8º</option>
+                        <option value="9">9º</option>
+                        <option value="10">10º</option>
+                        <option value="11">11º</option>
+                        <option value="12">12º</option>
+                    </select>
+                    @*<input class="form-control text-box single-line" data-val="true" data-val-number="The field AnoDeCurso must be a number." data-val-required="O campo AnoDeCurso é necessário." id="AnoDeCurso" name="AnoDeCurso" type="number" value="" />*@
+                    <span class="field-validation-valid text-danger" data-valmsg-for="AnoDeCurso" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="NotaFinal">NotaFinal</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field NotaFinal must be a number." data-val-required="O campo NotaFinal é necessário." id="NotaFinal" name="NotaFinal" type="text" value="" placeholder="Nota final:"/>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="NotaFinal" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label class="control-label col-md-2" for="NotaFinal">NotaFinal</label>*@
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field NotaFinal must be a number." data-val-required="O campo NotaFinal é necessário." id="aproveitamento" name="aproveitamento" type="text" value="" placeholder="Aproveitamento:" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Aproveitamento" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!--Botao de submit-->
+      <div class="row">
+        <div class="col-sm-4">
+            <div class="col-md-offset-12 col-md-10">
+                <span><a href="#" id="detalhes-apadrinhado" class="btn btn-primary" onclick="ValidarCredenciasDeUtilizador()">Validar Utilizador</a> </span>
+            </div>
+            </div>
+        <div class="col-sm-4">
+            </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-md-offset-12 col-md-10">
+                    <input type="submit" value="Continuar" class="btn btn-default" id="btn_submit_planoEstudos" />
+                </div>
+            </div>
+           
+            </div>
+    </div>
+      
+<!--AJAX CODE-->
+
+<script type="text/javascript">
+
+    function OcultarBotaoValidar(estado)
+    {
+        var hidden = estado;
+        document.getElementById("btn_submit_planoEstudos").style.visibility = 'hidden';
+    }
+
+    $(document).ready(function () {
+
+        OcultarBotaoValidar(false);
+    } );
+
+</script>
+
+<script type="text/javascript">
+    var ValidarCredenciasDeUtilizador = function ()
+    {
+        var codigo= document.getElementById("CodigoDoKwendy").value;
+        var Nome= document.getElementById("Nome").value;
+        var Apelido= document.getElementById("Apelido").value;
+
+        $.ajax({
+            url:"/RegistarAcompanhmanetoEscolar/ComprovarDadosDoKwendy",
+            type:'POST',
+            data:{
+                   CodigoDeUtilizador:codigo, 
+                   NomeDeUtilizador:Nome, 
+                   ApelidoDeUtilizador:Apelido
+                 },
+            sucess: function ()
+            {
+                OcultarBotaoValidar(true);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,219 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeApadrinhados>
+
+@{
+    ViewBag.Title = "ListaDeApdrinhados";
+}
+</br>
+<h2>ADULTOS</h2>
+</br>
+<!-- HTML POP UP DETALHES-->
+@Html.DropDownList("IdFiltroApadrinhado", new SelectList(ViewBag.FiltrosContactosDeAdultos, "ID", "Descricao"), "Filtratr por")
+<a href="#" type="reset" class="btn btn-primary" id="btn-submite-3" onclick="AplicarFiltrosApadrinhados()"> Aplicar Filtro</a>
+<div id="NovosRegistrosDePadrinhos">
+    @{ 
+        @@Html.RenderPartial("FiltrarRegistrosDeApadrinhados"); 
+    }
+</div>
+
+<!--HTML POPU Detalhes-->
+<div class="modal fade" id="MostrarDetalhesFichaDoApadrinhado">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingFchApadrinhado_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Ficha Pessoal</h3>
+            <div id="FotoDetalhesDoApadrinhado">
+                <img src="~/Images/foto-nuno.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+            </div>
+        </div>
+        <div class="modal-body" id="DetalhesFichaDoApadrinhado">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="cancel-ficha-pessoal-apadrinhado"> OK</a>
+        </div>
+    </div>
+</div>
+<!--HTML POP UP FICHA MEDICA -->
+<div class="modal fade" id="MostrarFichaMedicaDoApadrinhado">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingFchApadrinhado_3">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Ficha Médica</h3>
+            <div id="FotoFichaMedicaDoApadrinhado">
+                <img src="~/Images/foto-nuno.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+            </div>
+        </div>
+        <div class="modal-body" id="FichaMedicaDoApadrinhado">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="cancel-ficha-pessoal-apadrinhado"> OK</a>
+        </div>
+    </div>
+</div>
+<!--HTML PO UP ACTUALIZAR REGISTRO-->
+<div class="modal fade" id="MostrarFichaParaActualizarDoApadrinhado">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingEventos_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">ACTUALIZAR REGISTRO PESSOAL</h3>
+        </div>
+        <div class="modal-body" id="FichaParaActualizarDoApadrinhado">
+            <br />
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <textarea class="form-control" rows="2" id="Morada" placeholder="Morada"></textarea>
+                </li>
+                <li class="list-group-item">
+                    <select id="Bairro" name="Bairro">
+                        <option value="">Bairro</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <select id="Provinvcia" name="Provinvcia">
+                        <option value="">Provincía</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <select id="Municipio" name="Municipio">
+                        <option value="">Município</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <select id="Estado" name="Estado">
+                        <option value="">Estado evento</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Numerofilhos" placeholder="Nº de filhos: ">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Telemovel" placeholder="Nº telemovel:">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Telefone" placeholder="Nº Telefone:">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Correio" placeholder="Correio electrónico">
+                </li>
+                <li class="list-group-item">
+                    <select id="Tipodocumento" name="Tipodocumento">
+                        <option value="">Documento</option>
+                        <option value="1">Informa&#231;&#227;o n&#227;o dispon&#237;vel</option>
+                    </select>
+                </li><li class="list-group-item">
+                    <input type="text" class="form-control" id="Numrodocumento" placeholder="Nº documento:">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Validade" placeholder="Data validade: ">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" class="form-control" id="Emissao" placeholder="Data emissão: ">
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal" id="CLRATApadrinhado">Cancelar</a>
+            <a href="#" class="btn btn-success" data-dismiss="modal" id="CLRApadrinhado">Guardar</a>
+        </div>
+    </div>
+</div>
+<!--POP UP VER DETALHES-->
+<script type="text/javascript">
+    var DetalhesFichaApadrinhado = function (IDAdulto)
+        {
+            var url = "/VerApadrinhados/DetalhesPessoalDoApadrinho?id=" + IDAdulto;
+               $("#DetalhesFichaDoApadrinhado").load(url, function () 
+               {
+                    $("#loadingFchApadrinhado").hide();
+                    $("#MostrarDetalhesFichaDoApadrinhado").modal('show');
+               });
+       }
+</script>
+<!--POP UP VER FICHA MEDICA-->
+<script type="text/javascript">
+    var FichaMedicaApadrinhado = function (IDAdulto)
+       {
+            var url = "/VerApadrinhados/FichaMedicaDoApadrinho?id=" + IDAdulto;
+            $("#FichaMedicaDoApadrinhado").load(url, function () 
+            {
+               $("#MostrarFichaMedicaDoApadrinhado").modal('show');
+               $("#loadingFchApadrinhado_3").hide();
+            });
+       }
+</script>
+<!--POP UP ACTUALIZAR REGISTROS-->
+<script type="text/javascript">
+    var ActualizarFichaApadrinhado = function (ID)
+           {
+                
+                $("#loadingFchApadrinhado").show();
+                $("#MostrarFichaParaActualizarDoApadrinhado").modal('show');
+
+                var morada = 10;//document.getElementById("Morada").value;
+                var bairro = 11;//document.getElementById("Provincia").value;
+                var municipio = 12;//document.getElementById("Municipio").value;
+                var provincia = 13;//document.getElementById("Provincia").value;
+                var tipodocumento = 14;//document.getElementById("Tipodocumento").value;
+
+                var numerodoc = 15;//document.getElementById("Numerodocumento").value;
+                var validade = 16;//document.getElementById("validade").value;
+                var emissao = 17;//document.getElementById("Emissao").value;
+
+                var correioelectronico = 19;//document.getElementById("Correio").value;
+                var telefone = 20;//document.getElementById("Telefone").value;
+                var telemovel = 21;//document.getElementById("Telemovel").value;
+                var numerofilhos = 18;//= document.getElementById("Numerofilhos").value;
+             
+
+                $('#CLRApadrinhado').click(function ()
+                {
+                    $.ajax({
+                        type:'POST',
+                        url: '/VerApadrinhados/ActualizarFichaDeApadrinhado',
+                        data: {
+                                 id: ID,
+                                 idMorada: morada,
+                                 idProvincia: provincia,
+                                 IdMunicipio: municipio,
+                                 idTipodocumento: tipodocumento,
+                                 idNumerodocumento: numerodoc,
+                                 idValidade: validade,
+                                 idEmissao: emissao,
+                                 idCorreio: correioelectronico,
+                                 idTelefone: telefone,
+                                 idTelemovel: telemovel,
+                                 idNumerofilhos:numerofilhos,
+                              },
+                        success: function () { $("#loadingFchApadrinhado").hide(); }
+                    });
+                });
+           }
+</script>
+<!--AJAX AND JAVASCRIPT APPLY FILTER-->
+<script type="text/javascript">
+    var AplicarFiltrosApadrinhados = function()
+    {
+        var filtro = document.getElementById("IdFiltroApadrinhado").value;
+        $.ajax({
+            type:'GET',
+            url: '/VerApadrinhados/FiltrarRegistrosDeApadrinhados',
+            dataType: 'html',
+            cache: false,
+            async: true,
+            data:{id:filtro},
+            success: function (data) { $('#NovosRegistrosDePadrinhos').html(data); }
+            });
+    }
+</script>

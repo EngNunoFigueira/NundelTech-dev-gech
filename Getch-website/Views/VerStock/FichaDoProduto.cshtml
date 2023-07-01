@@ -1,0 +1,91 @@
+﻿@model Getch_website.Model_Consulta.ListDeProdutosEmStock
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          PRODUTO
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoProduto)
+        </dd>
+
+        <dt>
+           GENERO
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneroDoProduto)
+        </dd>
+
+        <dt>
+            CATEGORIA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoriaDoProduto)
+        </dd>
+
+        <dt>
+           QUANTIDADE
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+
+        <dt>
+           UNIDADES/CAIXA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidades)
+        </dd>
+
+        <dt>
+            KG/UNIDADE
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KilosPorUnidade)
+        </dd>
+
+        <dt>
+           DATA DE VALIDADE
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeValidade)
+        </dd>
+
+        <dt>
+           DATA DE ENTRADA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeEntraDoArmazem)
+        </dd>
+
+        <dt>
+           ARMAZÉM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoArmazem)
+        </dd>
+
+        <dt>
+           CONTACTO
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefoneDoArmazem)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

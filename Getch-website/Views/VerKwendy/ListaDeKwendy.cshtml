@@ -1,0 +1,158 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaDeKwendy>
+
+@{
+    ViewBag.Title = "ListaDeKwendy";
+}
+
+<h2>CRIANÇAS</h2>
+<br />
+@Html.DropDownList("IdFiltroCriancas", new SelectList(ViewBag.FiltrosContactosDeCriancas, "ID", "Descricao"), "Filtratr por")
+<a href="#" type="reset" class="btn btn-primary" id="FiltroParaCriancas" onclick="AplicarFiltrosKwendy()"> Aplicar Filtro</a>
+
+<div  id="NovosRegistroKwendys">
+    @{ 
+        @@Html.RenderPartial("FiltrarRegistrosDeMenores");
+    }
+</div>
+<!--HTML POPU Detalhes-->
+<div class="modal fade" id="MostraFichaKwendy">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loading-fchPRD-1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Ficha Pessoal</h3>
+            <div id="Detalhes-Ficha-1">
+                <img src="~/Images/foto-nuno.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+            </div>
+        </div>
+        <div class="modal-body" id="Detalhes-Ficha-kwendy">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-default" data-dismiss="modal" id="cancel-ficha-pessoal"> OK</a>
+        </div>
+    </div>
+</div>
+<!--HTML POPU Actualizar-->
+<div class="modal fade" id="Actualizar-Dados-Kwendy">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loading-fchPRD-2">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Ficha Pessoal</h3>
+            <div id="Actualizar-Ficha">
+                <img src="~/Images/foto-nuno.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+            </div>
+        </div>
+        <div class="modal-body" id="Actualizar-Ficha-kwendy">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-default" data-dismiss="modal" id="cancel"> Cancelar</a>
+            <a href="#" type="reset" class="btn btn-success" id="btn-submite-1"> Guardar</a>
+        </div>
+    </div>
+</div>
+
+
+<!--POP UP FICHA MEDICA-->
+<div class="modal fade" id="Ficha-Medica-Kwendy">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loading-fchPRD-3">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Ficha Médica</h3>
+            <div id="Ficha-Medica">
+                <img src="~/Images/foto-nuno.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+            </div>
+        </div>
+        <div class="modal-body" id="DadosFichaMedicakwendy">
+            NUNO MIGUEL....
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-default" data-dismiss="modal" id="cancel-ficha-medica"> OK</a>
+           
+        </div>
+    </div>
+</div>
+
+
+
+<!--Código Javascript Detalhes-->
+<script type="text/javascript">
+    var DetalhesFichaDaCrianca = function (IdCrianca)
+                                {
+                                   var urlfichakwendy = "/VerKwendy/FichaDoKwendy?id=" + IdCrianca;
+                                   $("#loading-fchPRD-1").show();
+                                   $("#Detalhes-Ficha-kwendy").load(urlfichakwendy, function () {           
+                                   $("#MostraFichaKwendy").modal('show');
+                                   $("#loading-fchPRD-1").hide();
+                                    });
+                                }
+</script>
+<!--Código Javascript Actualizar-->
+<script type="text/javascript">
+    var ActualizaFichaDaCrianca = function (IdCrianca)
+                                {
+                                  var url = "/VerKwendy/ActualizarFichaDoKwendy?id=" + IdCrianca;
+                                   $("#loading-fchPRD-2").show();
+                                   $("#Actualizar-Ficha-kwendy").load(url, function () {
+                                   $("#Actualizar-Dados-Kwendy").modal('show');
+                                   $("#loading-fchPRD-2").hide();
+                                   });
+                                }
+</script>
+
+<!-- POP UP DA Ficha Medica -->
+<script type="text/javascript">
+    var FichaMedicaDaCrianca = function (Idcrianca)
+                                {
+                                   var url = "/VerKwendy/FichaMedicaDoKwendy?id=" + Idcrianca;
+                                   $("#loading-fchPRD-2").show();
+                                   $("#DadosFichaMedicakwendy").load(url, function () {
+                                   $("#Ficha-Medica-Kwendy").modal('show'); 
+                                   $("#loading-fchPRD-2").hide();
+                                   });
+                                }
+</script>
+
+<!--Ajax call-->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#btn-submite-1").clik(function () {
+            $("#loading-fchPRD-2").show();
+            var DadosParaActualizar = $("#DadosParaActualizar").serialeze();
+            $.ajax({
+                type: 'POST',
+                url: '/VerKwendy/ActualizarFichaDoKwendy',
+                data: DadosParaActualizar,
+                sucess: function () {
+                    $("#loading-fchPRD-2").hide();
+                    $("#Actualizar-Dados-Kwendy").modal("hide");
+                }
+            })
+        });
+    });
+
+</script>
+<!--AJAX AND JAVASCRIPT APPLY FILTER-->
+<script type="text/javascript">
+    var AplicarFiltrosKwendy = function()
+    {
+        var filtro = document.getElementById("IdFiltroCriancas").value;
+        $.ajax({
+            type:'GET',
+            url: '/VerKwendy/FiltrarRegistrosDeMenores',
+            dataType: 'html',
+            cache: false,
+            async: true,
+            data:{id:filtro},
+            success: function (data) { $('#NovosRegistroKwendys').html(data); }
+            });
+    }
+</script>

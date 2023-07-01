@@ -1,0 +1,176 @@
+﻿@model IEnumerable<Getch_website.Model_Consulta.ListaPlanoDeEstudo>
+
+@{
+    ViewBag.Title = "DadosDoAcompanhmaentoEscolar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ACOMPANHAMENTO ESCOLAR</h2>
+<br />
+<!--HTML PARA FILTROS-->
+<div class="col-md-10">
+    <select data-val="true" data-val-number="Filtro" id="FiltroPlanoEstudos">
+        <option value="0">Selecciona opção</option>
+        <option value="2018"> Ano lectivo 2018</option>
+        <option value="2019"> Ano lectivo 2019</option>
+        <option value="2020"> Ano lectivo 2020</option>
+        <option value="2021"> Ano lectivo 2021</option>
+        <option value="2022"> Ano lectivo 2022</option>
+        <option value="2023"> Ano lectivo 2023</option>
+        <option value="2024"> Ano lectivo 2024</option>
+        <option value="2025"> Ano lectivo 2025</option>
+        <option value="2024"> Ano lectivo 2026</option>
+        <option value="2025"> Ano lectivo 2027</option>
+        <option value="1">Primeira classe</option>
+        <option value="2">Segunda classe</option>
+        <option value="3">Terceira classe</option>
+        <option value="4">Quarta classe</option>
+        <option value="5">Quinta classe</option>
+        <option value="6">Sexta classe</option>
+        <option value="7">Setima classe</option>
+        <option value="8">Oitava classe</option>
+        <option value="9">Nova classe</option>
+        <option value="10">Decima classe</option>
+        <option value="11">Decima primeira classe</option>
+        <option value="12">Decima Segunda classe</option>
+        <option value="Aprovados">No ano anterior</option>
+        <option value="Reprovados">Ano anterior</option>
+    </select>
+    <span><a href="#" id="FiltroPlanodeEstudos" class="btn btn-primary" onclick="AplicarFiltosPlanoCurricular()">Aplicar Filtrar</a> </span>
+</div>
+<!--END-->
+<br />
+<br />
+<!--UPDATE PARTIALVIEW-->
+<div id="PLANOSCURRICULARES">
+    @{
+       Html.RenderPartial("~/Views/ActualizarPlanoCurricular/AplicarFiltrosAcompanhamentoEscolar.cshtml");
+    }
+</div>
+<!--HTML POPU ACTUALIZAR PLANO CURRICULAR-->
+<div class="modal fade" id="ActualizarFichaPlanoCurricular" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingPlanoCurricular_1">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Dados Obrigatórios</h3>
+            <div id="FotoPlanoCurricular">
+                <img src="~/Images/foto-nuno.jpg" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+            </div>
+        </div>
+        <div class="modal-body" id="Disciplina">
+            <div class="container">
+                <h2>Datalhes da Disciplina</h2>
+                <br />
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        @Html.DropDownList("IdUC", new SelectList(ViewBag.UnidadeCurricular, "ID", "Descricao"), "Disciplina")
+                    </li>
+                    <li class="list-group-item">
+                        <input type="email" class="form-control" id="NotaPS" placeholder="Nota I Semestre" />
+                    </li>
+                    <li class="list-group-item">
+                        <input type="email" class="form-control" id="NotaSS" placeholder="Nota II Semestre" />
+                    </li>
+                    <li class="list-group-item">
+                        <input type="email" class="form-control" id="NotaTF" placeholder="Nota Final" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-success" data-dismiss="modal" id="SalvarPlanoCurricular">Registar Disciplina</a>
+            <a href="#" class="btn btn-default" data-dismiss="modal" id="CancelarPlanoCurricular">Anular Disciplina</a>
+        </div>
+    </div>
+</div>
+<!--HTML POPU DETALHES DO PLANO CURRICULAR-->
+<div class="modal fade" id="MostrarDetalhesDoPlanoCurricular" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-content">
+        <div style="text-align:center;display :none" id="loadingPlanoCurricular_2">
+            <img src="~/Images/InternetSlowdown_Day.gif" width="150" />
+        </div>
+        <div class="modal-header">
+            <a href="#" class="close" data-dissmiss="modal" aria-hidden="false">&times;</a>
+            <h3 class="modal-title">Detalhes do Plano Curricular Independente</h3>
+        </div>
+        <div class="modal-body" id="DetalhesDoPlanoCurricular">
+            <div class="container">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-default" data-dismiss="modal" id="CancelarPlanoCurricular">SAIR</a>
+        </div>
+    </div>
+</div>
+<!--AJAX & JAVASCRIPT TO UPDATE PLANO CURRICULAR-->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+    });
+    var ActualizarPlanoCurricular = function (Id_ACE) {
+
+        $("#ActualizarFichaPlanoCurricular").modal('show');
+        var NotaPrimeiroSemeste = document.getElementById("NotaPS").value;
+        var NotaSegundoSemestre = document.getElementById("NotaSS").value;
+        var NomeDaDisciplina    = 12;//document.getElementById("IdUC").value;
+        var NotaFinal           = document.getElementById("NotaTF").value;
+
+        $("#SalvarPlanoCurricular" ).click(function() {
+            $.ajax({
+                type:'POST',
+                url:'/ActualizarPlanoCurricular/ActualizarPlanoCurricular',
+                data: { idACE:Id_ACE,idUC:NomeDaDisciplina,NOTAPS:NotaPrimeiroSemeste,NOTASS:NotaSegundoSemestre,NOTAFN:NotaFinal },
+                sucess: function () { $("#ActualizarFichaPlanoCurricular").modal('hide'); }
+            });
+        });
+    }
+</script>
+
+<!--PARTIAL VIEW RESULT TO PRINT HISTORY-->
+<script type="text/javascript">
+    var HistoricoPlanoCurricular = function (ID) {
+        $.ajax({
+            type: 'GET',
+            cache:false,
+		    dataType:'html',
+            url: '/ActualizarPlanoCurricular/AplicarFiltrosAcompanhamentoEscolar',
+            data:{id:ID},
+            sucess: function (data){ $('#PLANOSCURRICULARES').html(data); }
+        });
+    }
+</script>
+
+<!--DETALHES DO PLANO CURRICULAR-->
+<script type="text/javascript">
+    var DetalhesPlanoCurricular = function (ID) 
+    {
+       var URL = "/ActualizarPlanoCurricular/DetalhesDoPlanoEscolar?id=" + ID;
+       $("#DetalhesDoPlanoCurricular").load(URL, function ()
+           {
+              $("#MostrarDetalhesDoPlanoCurricular").modal("show");
+           });
+    }
+</script>
+
+<script type="text/javascript">
+
+    var AplicarFiltosPlanoCurricular = function () {
+
+        var filtro = document.getElementById("FiltroPlanoEstudos").value;
+        alert(filtro);
+
+        $.ajax({
+            type: 'GET',
+            cache: false,
+            dataType: 'html',
+            url: '/ActualizarPlanoCurricular/HistoricoDoPlanoCurricularDoAnoEmCurso',
+            data: { id: filtro },
+            sucess: function (data) { $('#PLANOSCURRICULARES').html(data); }
+        });
+    }
+
+</script>
