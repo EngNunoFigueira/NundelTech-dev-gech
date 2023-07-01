@@ -82,3 +82,5 @@ C:\Users\NunoMiguel\Documents\Visual Studio 2015\Projects\gech-A\Getch-website\o
 C:\Users\NunoMiguel\Documents\Visual Studio 2015\Projects\gech-A\Getch-website\obj\Debug\Getch-website.csproj.AssemblyReference.cache
 C:\Users\NunoMiguel\Documents\Visual Studio 2015\Projects\gech-A\Getch-website\obj\Debug\Getch-website.csproj.CoreCompileInputs.cache
 C:\Users\NunoMiguel\Documents\Visual Studio 2015\Projects\gech-A\Getch-website\obj\Debug\Getch-website.csproj.CopyComplete
+C:\Users\HUERTASMAS\Documents\repos\NundelTech-dev-gech\Getch-website\obj\Debug\Getch-website.dll
+C:\Users\HUERTASMAS\Documents\repos\NundelTech-dev-gech\Getch-website\obj\Debug\Getch-website.pdb
